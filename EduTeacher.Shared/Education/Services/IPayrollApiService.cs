@@ -1,4 +1,5 @@
 using Rootfly.Mobile.Core.Common.Results;
+using Rootfly.Mobile.Core.Common.DTOs;
 using EduTeacher.Shared.Education.Dtos;
 
 namespace EduTeacher.Shared.Education.Services;
