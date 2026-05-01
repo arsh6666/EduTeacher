@@ -1,0 +1,46 @@
+@page "/grades/submissions"
+@inherits RootflyComponentBase<GradeSubmissionsViewModel>
+
+<MudText Typo="Typo.h4" Class="mb-2">Grade Submissions</MudText>
+<MudText Typo="Typo.subtitle1" Color="Color.Secondary" Class="mb-4">
+    @ViewModel.GradedCount / @ViewModel.TotalSubmissions graded
+</MudText>
+
+@if (ViewModel.IsBusy)
+{
+    <MudProgressLinear Indeterminate="true" Color="Color.Primary" />
+}
+else
+{
+    <MudTable Items="ViewModel.Submissions" Hover="true" Elevation="2">
+        <HeaderContent>
+            <MudTh>Student</MudTh>
+            <MudTh>Submitted</MudTh>
+            <MudTh>Score</MudTh>
+            <MudTh>Feedback</MudTh>
+            <MudTh>Graded</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd>@context.StudentName</MudTd>
+            <MudTd>@context.SubmittedAt.ToString("MMM dd, yyyy HH:mm")</MudTd>
+            <MudTd>
+                <MudNumericField @bind-Value="context.Score" Variant="Variant.Outlined"  />
+            </MudTd>
+            <MudTd>
+                <MudTextField @bind-Value="context.Feedback" Variant="Variant.Outlined"  />
+            </MudTd>
+            <MudTd>
+                <MudChip T="string" Size="Size.Small"
+                         Color="@(context.IsGraded ? Color.Success : Color.Warning)">
+                    @(context.IsGraded ? "Graded" : "Pending")
+                </MudChip>
+            </MudTd>
+        </RowTemplate>
+    </MudTable>
+
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="mt-4"
+               Disabled="ViewModel.IsBusy"
+               OnClick="@(() => ViewModel.GradeCommand.Execute(null))">
+        Save Grades
+    </MudButton>
+}

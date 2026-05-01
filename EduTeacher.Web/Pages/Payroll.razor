@@ -1,0 +1,51 @@
+@page "/payroll"
+@inherits RootflyComponentBase<PayrollDashboardViewModel>
+
+<MudText Typo="Typo.h4" Class="mb-4">Payroll</MudText>
+
+@if (ViewModel.IsBusy)
+{
+    <MudProgressLinear Indeterminate="true" Color="Color.Primary" />
+}
+else
+{
+    <MudGrid Class="mb-6">
+        <MudItem xs="12" sm="6">
+            <MudCard>
+                <MudCardContent>
+                    <MudText Typo="Typo.subtitle2" Color="Color.Secondary">Net Pay</MudText>
+                    <MudText Typo="Typo.h4">@ViewModel.NetPay.ToString("C")</MudText>
+                </MudCardContent>
+            </MudCard>
+        </MudItem>
+        <MudItem xs="12" sm="6">
+            <MudCard>
+                <MudCardContent>
+                    <MudText Typo="Typo.subtitle2" Color="Color.Secondary">CTC</MudText>
+                    <MudText Typo="Typo.h4">@ViewModel.Ctc.ToString("C")</MudText>
+                </MudCardContent>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+
+    <MudGrid>
+        <MudItem xs="12" sm="4">
+            <MudButton Variant="Variant.Outlined" Color="Color.Primary" FullWidth="true"
+                       OnClick="@(() => ViewModel.NavigateToPayslipsCommand.Execute(null))">
+                View Payslips
+            </MudButton>
+        </MudItem>
+        <MudItem xs="12" sm="4">
+            <MudButton Variant="Variant.Outlined" Color="Color.Primary" FullWidth="true"
+                       OnClick="@(() => ViewModel.NavigateToTaxCommand.Execute(null))">
+                Tax Declaration
+            </MudButton>
+        </MudItem>
+        <MudItem xs="12" sm="4">
+            <MudButton Variant="Variant.Outlined" Color="Color.Primary" FullWidth="true"
+                       OnClick="@(() => ViewModel.NavigateToReimbursementsCommand.Execute(null))">
+                Reimbursements
+            </MudButton>
+        </MudItem>
+    </MudGrid>
+}

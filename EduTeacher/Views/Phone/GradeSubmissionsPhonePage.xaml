@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ui:BaseContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ui="clr-namespace:Rootfly.Mobile.Core.UI.Pages;assembly=Rootfly.Mobile.Core.UI"
+    xmlns:vm="clr-namespace:EduTeacher.Shared.ViewModels;assembly=EduTeacher.Shared"
+    x:Class="EduTeacher.Views.Phone.GradeSubmissionsPhonePage"
+    x:TypeArguments="vm:GradeSubmissionsViewModel"
+    Title="{Binding Title}">
+
+    <Grid RowDefinitions="Auto,*" RowSpacing="12" Padding="16">
+        <!-- Summary -->
+        <Frame Grid.Row="0" Padding="14" CornerRadius="12" BorderColor="Transparent" HasShadow="True"
+               BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray900}}">
+            <HorizontalStackLayout Spacing="20">
+                <VerticalStackLayout>
+                    <Label Text="Total" FontSize="11" TextColor="Gray" />
+                    <Label Text="{Binding TotalSubmissions}" FontSize="18" FontAttributes="Bold" TextColor="{StaticResource Primary}" />
+                </VerticalStackLayout>
+                <VerticalStackLayout>
+                    <Label Text="Graded" FontSize="11" TextColor="Gray" />
+                    <Label Text="{Binding GradedCount}" FontSize="18" FontAttributes="Bold" TextColor="{StaticResource Secondary}" />
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+        </Frame>
+
+        <!-- Submissions list -->
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Submissions}" EmptyView="No submissions yet">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="vm:SubmissionGradeItem">
+                    <Frame Padding="14" CornerRadius="12" BorderColor="Transparent" HasShadow="True" Margin="0,0,0,8"
+                           BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray900}}">
+                        <VerticalStackLayout Spacing="8">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Label Grid.Column="0" Text="{Binding StudentName}" FontSize="15" FontAttributes="Bold" />
+                                <Label Grid.Column="1" Text="{Binding SubmittedAt, StringFormat='{0:MMM dd, HH:mm}'}" FontSize="11" TextColor="Gray" />
+                            </Grid>
+                            <Grid ColumnDefinitions="*,*,Auto" ColumnSpacing="8">
+                                <Entry Grid.Column="0" Placeholder="Score" Text="{Binding Score}" Keyboard="Numeric" />
+                                <Entry Grid.Column="1" Placeholder="Feedback" Text="{Binding Feedback}" />
+                                <Button Grid.Column="2" Text="Grade" CornerRadius="8" HeightRequest="38"
+                                        BackgroundColor="{StaticResource Secondary}" TextColor="White" FontSize="12"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type vm:GradeSubmissionsViewModel}}, Path=GradeCommand}"
+                                        CommandParameter="{Binding .}"
+                                        IsEnabled="{Binding IsGraded, Converter={StaticResource InvertBoolConverter}}" />
+                            </Grid>
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <ActivityIndicator Grid.Row="1" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"
+                           HorizontalOptions="Center" VerticalOptions="Center" Color="{StaticResource Primary}" />
+    </Grid>
+</ui:BaseContentPage>

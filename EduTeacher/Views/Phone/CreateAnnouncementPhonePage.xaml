@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<core:BaseContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:core="clr-namespace:Rootfly.Mobile.Core.UI.Pages;assembly=Rootfly.Mobile.Core.UI"
+                       xmlns:vm="clr-namespace:EduTeacher.Shared.ViewModels;assembly=EduTeacher.Shared"
+                       x:Class="EduTeacher.Views.Phone.CreateAnnouncementPhonePage"
+                       x:TypeArguments="vm:CreateAnnouncementViewModel"
+                       Title="{Binding Title}">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="16" Padding="16">
+
+            <!-- Header -->
+            <Label Text="New Announcement" FontSize="22" FontAttributes="Bold"
+                   FontFamily="Poppins" TextColor="#1A73E8" />
+
+            <!-- Form Card -->
+            <Border StrokeShape="RoundRectangle 12" Stroke="#E0E0E0"
+                    BackgroundColor="White" Padding="16"
+                    Shadow="{Shadow Opacity=0.08, Offset='0,2'}">
+                <VerticalStackLayout Spacing="16">
+
+                    <!-- Title -->
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Title" FontSize="13" TextColor="#888" FontAttributes="Bold" />
+                        <Border StrokeShape="RoundRectangle 8" Stroke="#E0E0E0" Padding="4,0">
+                            <Entry Text="{Binding AnnouncementTitle}" Placeholder="Announcement title..."
+                                   FontSize="15" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- Content -->
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Content" FontSize="13" TextColor="#888" FontAttributes="Bold" />
+                        <Border StrokeShape="RoundRectangle 8" Stroke="#E0E0E0" Padding="4">
+                            <Editor Text="{Binding Content}" Placeholder="Write your announcement..."
+                                    HeightRequest="150" FontSize="14" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- Audience -->
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Audience" FontSize="13" TextColor="#888" FontAttributes="Bold" />
+                        <Border StrokeShape="RoundRectangle 8" Stroke="#E0E0E0" Padding="4,0">
+                            <Picker ItemsSource="{Binding AudienceOptions}"
+                                    SelectedItem="{Binding Audience}" FontSize="15" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Error Message -->
+            <Label Text="{Binding ErrorMessage}" TextColor="#D32F2F" FontSize="13"
+                   IsVisible="{Binding ErrorMessage, Converter={StaticResource IsNotNullOrEmptyConverter}}" />
+
+            <!-- Action Buttons -->
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                <Button Text="Save Draft" BackgroundColor="#F5F5F5" TextColor="#333"
+                        CornerRadius="12" HeightRequest="48" FontAttributes="Bold"
+                        Command="{Binding SaveDraftCommand}"
+                        IsEnabled="{Binding IsSubmitting, Converter={StaticResource InvertedBoolConverter}}" />
+                <Button Grid.Column="1" Text="Publish" BackgroundColor="#1A73E8" TextColor="White"
+                        CornerRadius="12" HeightRequest="48" FontAttributes="Bold"
+                        Command="{Binding CreateAndPublishCommand}"
+                        IsEnabled="{Binding IsSubmitting, Converter={StaticResource InvertedBoolConverter}}" />
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</core:BaseContentPage>

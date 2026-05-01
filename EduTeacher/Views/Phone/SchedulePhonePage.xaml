@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ui:BaseContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ui="clr-namespace:Rootfly.Mobile.Core.UI.Pages;assembly=Rootfly.Mobile.Core.UI"
+    xmlns:vm="clr-namespace:EduTeacher.Shared.ViewModels;assembly=EduTeacher.Shared"
+    xmlns:dtos="clr-namespace:EduTeacher.Shared.Education.Dtos;assembly=EduTeacher.Shared"
+    x:Class="EduTeacher.Views.Phone.SchedulePhonePage"
+    x:TypeArguments="vm:ScheduleViewModel"
+    Title="{Binding Title}">
+
+    <Grid RowDefinitions="Auto,*" RowSpacing="0">
+        <!-- Day tabs -->
+        <ScrollView Grid.Row="0" Orientation="Horizontal" HorizontalScrollBarVisibility="Never" Padding="16,12">
+            <HorizontalStackLayout Spacing="8">
+                <Button Text="Mon" CornerRadius="20" HeightRequest="36" MinimumWidthRequest="54"
+                        Command="{Binding SelectDayCommand}" CommandParameter="{x:Static DayOfWeek.Monday}"
+                        BackgroundColor="{StaticResource Primary}" TextColor="White" FontSize="12" />
+                <Button Text="Tue" CornerRadius="20" HeightRequest="36" MinimumWidthRequest="54"
+                        Command="{Binding SelectDayCommand}" CommandParameter="{x:Static DayOfWeek.Tuesday}"
+                        BackgroundColor="{StaticResource Gray200}" TextColor="{StaticResource Gray900}" FontSize="12" />
+                <Button Text="Wed" CornerRadius="20" HeightRequest="36" MinimumWidthRequest="54"
+                        Command="{Binding SelectDayCommand}" CommandParameter="{x:Static DayOfWeek.Wednesday}"
+                        BackgroundColor="{StaticResource Gray200}" TextColor="{StaticResource Gray900}" FontSize="12" />
+                <Button Text="Thu" CornerRadius="20" HeightRequest="36" MinimumWidthRequest="54"
+                        Command="{Binding SelectDayCommand}" CommandParameter="{x:Static DayOfWeek.Thursday}"
+                        BackgroundColor="{StaticResource Gray200}" TextColor="{StaticResource Gray900}" FontSize="12" />
+                <Button Text="Fri" CornerRadius="20" HeightRequest="36" MinimumWidthRequest="54"
+                        Command="{Binding SelectDayCommand}" CommandParameter="{x:Static DayOfWeek.Friday}"
+                        BackgroundColor="{StaticResource Gray200}" TextColor="{StaticResource Gray900}" FontSize="12" />
+                <Button Text="Sat" CornerRadius="20" HeightRequest="36" MinimumWidthRequest="54"
+                        Command="{Binding SelectDayCommand}" CommandParameter="{x:Static DayOfWeek.Saturday}"
+                        BackgroundColor="{StaticResource Gray200}" TextColor="{StaticResource Gray900}" FontSize="12" />
+            </HorizontalStackLayout>
+        </ScrollView>
+
+        <!-- Schedule entries -->
+        <CollectionView Grid.Row="1" ItemsSource="{Binding ScheduleEntries}" Margin="16,0"
+                        EmptyView="No classes on this day">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="dtos:TimetableEntryDto">
+                    <Frame Padding="16" CornerRadius="12" BorderColor="Transparent" HasShadow="True" Margin="0,0,0,10"
+                           BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray900}}">
+                        <Grid ColumnDefinitions="4,12,*" ColumnSpacing="0">
+                            <BoxView Grid.Column="0" BackgroundColor="{StaticResource Primary}" CornerRadius="2"
+                                     VerticalOptions="Fill" WidthRequest="4" />
+                            <VerticalStackLayout Grid.Column="2" Spacing="4">
+                                <Label Text="{Binding CourseName}" FontSize="16" FontAttributes="Bold" />
+                                <HorizontalStackLayout Spacing="12">
+                                    <Label Text="{Binding StartTime, StringFormat='{0:hh\\:mm}'}" FontSize="13" TextColor="{StaticResource Primary}" />
+                                    <Label Text="—" FontSize="13" TextColor="Gray" />
+                                    <Label Text="{Binding EndTime, StringFormat='{0:hh\\:mm}'}" FontSize="13" TextColor="{StaticResource Primary}" />
+                                </HorizontalStackLayout>
+                                <Label Text="{Binding SectionName, StringFormat='Section: {0}'}" FontSize="12" TextColor="Gray" />
+                                <Label Text="{Binding RoomName, StringFormat='Room: {0}'}" FontSize="12" TextColor="Gray" />
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <ActivityIndicator Grid.Row="1" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"
+                           HorizontalOptions="Center" VerticalOptions="Center" Color="{StaticResource Primary}" />
+    </Grid>
+</ui:BaseContentPage>

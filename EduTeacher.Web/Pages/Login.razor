@@ -1,0 +1,29 @@
+@page "/login"
+@layout MinimalLayout
+@inherits RootflyComponentBase<LoginViewModel>
+
+<MudCard Class="pa-6" Style="width: 100%; max-width: 400px; margin: auto;">
+    <MudCardContent>
+        <MudText Typo="Typo.h4" Align="Align.Center" Class="mb-4">EduTeacher</MudText>
+        <MudText Typo="Typo.body1" Align="Align.Center" Class="mb-6" Color="Color.Secondary">Sign in to continue</MudText>
+
+        <MudTextField @bind-Value="ViewModel.Email" Label="Email" Variant="Variant.Outlined"
+                      InputType="InputType.Email" Class="mb-4" />
+        <MudTextField @bind-Value="ViewModel.Password" Label="Password" Variant="Variant.Outlined"
+                      InputType="InputType.Password" Class="mb-4" />
+
+        @if (!string.IsNullOrEmpty(ViewModel.ErrorMessage))
+        {
+            <MudAlert Severity="Severity.Error" Class="mb-4">@ViewModel.ErrorMessage</MudAlert>
+        }
+
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true"
+                   Disabled="ViewModel.IsBusy" OnClick="@(() => ViewModel.LoginCommand.Execute(null))">
+            @if (ViewModel.IsBusy)
+            {
+                <MudProgressCircular Size="Size.Small" Indeterminate="true" Class="mr-2" />
+            }
+            Sign In
+        </MudButton>
+    </MudCardContent>
+</MudCard>

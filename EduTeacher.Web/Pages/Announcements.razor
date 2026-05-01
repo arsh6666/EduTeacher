@@ -1,0 +1,48 @@
+@page "/announcements"
+@inherits RootflyComponentBase<AnnouncementManageViewModel>
+
+<MudText Typo="Typo.h4" Class="mb-4">Announcements</MudText>
+
+<MudButton Variant="Variant.Filled" Color="Color.Primary" Class="mb-4"
+           OnClick="@(() => ViewModel.CreateNewCommand.Execute(null))">
+    New Announcement
+</MudButton>
+
+@if (ViewModel.IsBusy)
+{
+    <MudProgressLinear Indeterminate="true" Color="Color.Primary" />
+}
+else if (ViewModel.IsEmpty)
+{
+    <MudAlert Severity="Severity.Info">No announcements yet.</MudAlert>
+}
+else
+{
+    @foreach (var item in ViewModel.Announcements)
+    {
+        <MudCard Class="mb-3">
+            <MudCardContent>
+                <div class="d-flex justify-space-between align-center">
+                    <MudText Typo="Typo.h6">@item.Title</MudText>
+                    <MudChip T="string" Size="Size.Small"
+                             Color="@(item.IsPublished ? Color.Success : Color.Default)">
+                        @(item.IsPublished ? "Published" : "Draft")
+                    </MudChip>
+                </div>
+                <MudText Typo="Typo.body2" Class="mt-1">@item.Content?.Substring(0, Math.Min(item.Content?.Length ?? 0, 100))...</MudText>
+                <MudText Typo="Typo.caption" Color="Color.Secondary" Class="mt-1">
+                    @item.Audience — @item.CreationTime.ToString("MMM dd, yyyy") by @item.CreatorName
+                </MudText>
+            </MudCardContent>
+            <MudCardActions>
+                @if (!item.IsPublished)
+                {
+                    <MudButton Size="Size.Small" Color="Color.Primary"
+                               OnClick="@(() => ViewModel.PublishCommand.Execute(item.Id))">
+                        Publish
+                    </MudButton>
+                }
+            </MudCardActions>
+        </MudCard>
+    }
+}

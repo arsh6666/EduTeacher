@@ -1,0 +1,68 @@
+@page "/attendance/mark"
+@inherits RootflyComponentBase<MarkAttendanceViewModel>
+
+<MudText Typo="Typo.h4" Class="mb-4">Mark Attendance</MudText>
+
+@if (ViewModel.IsBusy)
+{
+    <MudProgressLinear Indeterminate="true" Color="Color.Primary" />
+}
+else
+{
+    <MudCard Class="mb-4">
+        <MudCardContent>
+            <MudGrid>
+                <MudItem xs="12" sm="6">
+                    <MudSelect T="SectionDto" @bind-Value="ViewModel.SelectedSection" Label="Section"
+                               Variant="Variant.Outlined" ToStringFunc="@(s => s?.Name ?? string.Empty)">
+                        @foreach (var section in ViewModel.Sections)
+                        {
+                            <MudSelectItem T="SectionDto" Value="@(section)">@(section.Name)</MudSelectItem>
+                        }
+                    </MudSelect>
+                </MudItem>
+                <MudItem xs="12" sm="6">
+                    <MudDatePicker Date="@ViewModel.SelectedDate" DateChanged="@(d => { if (d.HasValue) ViewModel.SelectedDate = d.Value; })" Label="Date" Variant="Variant.Outlined" />
+                </MudItem>
+            </MudGrid>
+        </MudCardContent>
+        <MudCardActions>
+            <MudButton Size="Size.Small" Color="Color.Success"
+                       OnClick="@(() => ViewModel.MarkAllPresentCommand.Execute(null))">Mark All Present</MudButton>
+            <MudButton Size="Size.Small" Color="Color.Error"
+                       OnClick="@(() => ViewModel.MarkAllPresentCommand.Execute(null))">Mark All Present (2)</MudButton>
+        </MudCardActions>
+    </MudCard>
+
+    <MudTable Items="ViewModel.Students" Hover="true" Elevation="2">
+        <HeaderContent>
+            <MudTh>Student</MudTh>
+            <MudTh>Status</MudTh>
+            <MudTh>Remarks</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd>@context.StudentName</MudTd>
+            <MudTd>
+                <MudSelect T="AttendanceStatus" @bind-Value="context.Status" Variant="Variant.Outlined" Dense="true">
+                    @foreach (AttendanceStatus status in Enum.GetValues<AttendanceStatus>())
+                    {
+                        <MudSelectItem T="AttendanceStatus" Value="@status">@status</MudSelectItem>
+                    }
+                </MudSelect>
+            </MudTd>
+            <MudTd>
+                <MudTextField @bind-Value="context.Remarks" Variant="Variant.Outlined" />
+            </MudTd>
+        </RowTemplate>
+    </MudTable>
+
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="mt-4"
+               Disabled="ViewModel.IsSubmitting"
+               OnClick="@(() => ViewModel.SubmitAttendanceCommand.Execute(null))">
+        @if (ViewModel.IsSubmitting)
+        {
+            <MudProgressCircular Size="Size.Small" Indeterminate="true" Class="mr-2" />
+        }
+        Submit Attendance
+    </MudButton>
+}

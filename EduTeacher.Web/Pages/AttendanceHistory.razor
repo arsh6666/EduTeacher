@@ -1,0 +1,74 @@
+@page "/attendance/history"
+@inherits RootflyComponentBase<AttendanceHistoryViewModel>
+
+<MudText Typo="Typo.h4" Class="mb-4">Attendance History</MudText>
+
+@if (ViewModel.IsBusy)
+{
+    <MudProgressLinear Indeterminate="true" Color="Color.Primary" />
+}
+else
+{
+    <MudSelect T="SectionDto" @bind-Value="ViewModel.SelectedSection" Label="Section"
+               Variant="Variant.Outlined" Class="mb-4"
+               ToStringFunc="@(s => s?.Name ?? string.Empty)">
+        @foreach (var section in ViewModel.Sections)
+        {
+            <MudSelectItem T="SectionDto" Value="@(section)">@(section.Name)</MudSelectItem>
+        }
+    </MudSelect>
+
+    @if (ViewModel.Summary is not null)
+    {
+        <MudGrid>
+            <MudItem xs="12" sm="6" md="3">
+                <MudCard>
+                    <MudCardContent>
+                        <MudText Typo="Typo.subtitle2" Color="Color.Secondary">Total Students</MudText>
+                        <MudText Typo="Typo.h5">@ViewModel.Summary.TotalStudents</MudText>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+            <MudItem xs="12" sm="6" md="3">
+                <MudCard>
+                    <MudCardContent>
+                        <MudText Typo="Typo.subtitle2" Color="Color.Success">Present</MudText>
+                        <MudText Typo="Typo.h5">@ViewModel.Summary.PresentCount</MudText>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+            <MudItem xs="12" sm="6" md="3">
+                <MudCard>
+                    <MudCardContent>
+                        <MudText Typo="Typo.subtitle2" Color="Color.Error">Absent</MudText>
+                        <MudText Typo="Typo.h5">@ViewModel.Summary.AbsentCount</MudText>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+            <MudItem xs="12" sm="6" md="3">
+                <MudCard>
+                    <MudCardContent>
+                        <MudText Typo="Typo.subtitle2" Color="Color.Warning">Late</MudText>
+                        <MudText Typo="Typo.h5">@ViewModel.Summary.LateCount</MudText>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+            <MudItem xs="12" sm="6" md="3">
+                <MudCard>
+                    <MudCardContent>
+                        <MudText Typo="Typo.subtitle2" Color="Color.Info">Excused</MudText>
+                        <MudText Typo="Typo.h5">@ViewModel.Summary.ExcusedCount</MudText>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+            <MudItem xs="12" sm="6" md="3">
+                <MudCard>
+                    <MudCardContent>
+                        <MudText Typo="Typo.subtitle2" Color="Color.Primary">Attendance %</MudText>
+                        <MudText Typo="Typo.h5">@ViewModel.Summary.AttendancePercentage.ToString("F1")%</MudText>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+        </MudGrid>
+    }
+}

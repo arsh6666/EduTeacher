@@ -1,0 +1,46 @@
+@page "/grades"
+@inherits RootflyComponentBase<GradeBookViewModel>
+
+<MudText Typo="Typo.h4" Class="mb-4">Grade Book</MudText>
+
+@if (ViewModel.IsBusy)
+{
+    <MudProgressLinear Indeterminate="true" Color="Color.Primary" />
+}
+else
+{
+    <MudSelect T="SectionDto" @bind-Value="ViewModel.SelectedSection" Label="Section"
+               Variant="Variant.Outlined" Class="mb-4"
+               ToStringFunc="@(s => s?.Name ?? string.Empty)">
+        @foreach (var section in ViewModel.Sections)
+        {
+            <MudSelectItem T="SectionDto" Value="@(section)">@(section.Name)</MudSelectItem>
+        }
+    </MudSelect>
+
+    <MudTable Items="ViewModel.Grades" Hover="true" Elevation="2">
+        <HeaderContent>
+            <MudTh>Student</MudTh>
+            <MudTh>Course</MudTh>
+            <MudTh>Score</MudTh>
+            <MudTh>Grade</MudTh>
+            <MudTh>Grade Points</MudTh>
+            <MudTh>Published</MudTh>
+            <MudTh>Remarks</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd>@context.StudentName</MudTd>
+            <MudTd>@context.CourseName</MudTd>
+            <MudTd>@context.Score</MudTd>
+            <MudTd>@context.Grade</MudTd>
+            <MudTd>@context.GradePoints</MudTd>
+            <MudTd>
+                <MudChip T="string" Size="Size.Small"
+                         Color="@(context.IsPublished ? Color.Success : Color.Default)">
+                    @(context.IsPublished ? "Published" : "Draft")
+                </MudChip>
+            </MudTd>
+            <MudTd>@context.Remarks</MudTd>
+        </RowTemplate>
+    </MudTable>
+}

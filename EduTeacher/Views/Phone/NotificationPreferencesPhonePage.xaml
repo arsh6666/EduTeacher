@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<core:BaseContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:core="clr-namespace:Rootfly.Mobile.Core.UI.Pages;assembly=Rootfly.Mobile.Core.UI"
+                       xmlns:vm="clr-namespace:EduTeacher.Shared.ViewModels;assembly=EduTeacher.Shared"
+                       x:Class="EduTeacher.Views.Phone.NotificationPreferencesPhonePage"
+                       x:TypeArguments="vm:NotificationPreferencesViewModel"
+                       Title="{Binding Title}">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="16" Padding="16">
+
+            <!-- Header -->
+            <Label Text="Notification Settings" FontSize="22" FontAttributes="Bold"
+                   FontFamily="Poppins" TextColor="#1A73E8" />
+
+            <Label Text="Choose which notifications you'd like to receive" FontSize="14"
+                   TextColor="#666" Margin="0,0,0,8" />
+
+            <!-- Toggles Card -->
+            <Border StrokeShape="RoundRectangle 12" Stroke="#E0E0E0"
+                    BackgroundColor="White" Padding="16"
+                    Shadow="{Shadow Opacity=0.08, Offset='0,2'}">
+                <VerticalStackLayout Spacing="16">
+
+                    <!-- Attendance -->
+                    <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                        <Label Text="📋" FontSize="20" VerticalOptions="Center" />
+                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
+                            <Label Text="Attendance Alerts" FontSize="15" FontAttributes="Bold" />
+                            <Label Text="Notifications about attendance marking" FontSize="12" TextColor="#888" />
+                        </VerticalStackLayout>
+                        <Switch Grid.Column="2" IsToggled="{Binding AttendanceAlerts}"
+                                OnColor="#1A73E8" />
+                    </Grid>
+
+                    <BoxView HeightRequest="1" Color="#F0F0F0" />
+
+                    <!-- Grades -->
+                    <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                        <Label Text="📊" FontSize="20" VerticalOptions="Center" />
+                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
+                            <Label Text="Grade Alerts" FontSize="15" FontAttributes="Bold" />
+                            <Label Text="Grade submission and approval updates" FontSize="12" TextColor="#888" />
+                        </VerticalStackLayout>
+                        <Switch Grid.Column="2" IsToggled="{Binding GradeAlerts}"
+                                OnColor="#1A73E8" />
+                    </Grid>
+
+                    <BoxView HeightRequest="1" Color="#F0F0F0" />
+
+                    <!-- Assignments -->
+                    <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                        <Label Text="📝" FontSize="20" VerticalOptions="Center" />
+                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
+                            <Label Text="Assignment Alerts" FontSize="15" FontAttributes="Bold" />
+                            <Label Text="New submissions to grade" FontSize="12" TextColor="#888" />
+                        </VerticalStackLayout>
+                        <Switch Grid.Column="2" IsToggled="{Binding AssignmentAlerts}"
+                                OnColor="#1A73E8" />
+                    </Grid>
+
+                    <BoxView HeightRequest="1" Color="#F0F0F0" />
+
+                    <!-- Announcements -->
+                    <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                        <Label Text="📢" FontSize="20" VerticalOptions="Center" />
+                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
+                            <Label Text="Announcement Alerts" FontSize="15" FontAttributes="Bold" />
+                            <Label Text="School-wide announcements" FontSize="12" TextColor="#888" />
+                        </VerticalStackLayout>
+                        <Switch Grid.Column="2" IsToggled="{Binding AnnouncementAlerts}"
+                                OnColor="#1A73E8" />
+                    </Grid>
+
+                    <BoxView HeightRequest="1" Color="#F0F0F0" />
+
+                    <!-- Chat -->
+                    <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                        <Label Text="💬" FontSize="20" VerticalOptions="Center" />
+                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
+                            <Label Text="Chat Alerts" FontSize="15" FontAttributes="Bold" />
+                            <Label Text="New messages from students and parents" FontSize="12" TextColor="#888" />
+                        </VerticalStackLayout>
+                        <Switch Grid.Column="2" IsToggled="{Binding ChatAlerts}"
+                                OnColor="#1A73E8" />
+                    </Grid>
+
+                    <BoxView HeightRequest="1" Color="#F0F0F0" />
+
+                    <!-- Schedule -->
+                    <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                        <Label Text="📅" FontSize="20" VerticalOptions="Center" />
+                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
+                            <Label Text="Schedule Alerts" FontSize="15" FontAttributes="Bold" />
+                            <Label Text="Timetable changes and reminders" FontSize="12" TextColor="#888" />
+                        </VerticalStackLayout>
+                        <Switch Grid.Column="2" IsToggled="{Binding ScheduleAlerts}"
+                                OnColor="#1A73E8" />
+                    </Grid>
+
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Save Button -->
+            <Button Text="Save Preferences" BackgroundColor="#1A73E8" TextColor="White"
+                    CornerRadius="12" HeightRequest="48" FontAttributes="Bold" FontSize="16"
+                    Command="{Binding SaveCommand}"
+                    IsEnabled="{Binding IsSaving, Converter={StaticResource InvertedBoolConverter}}" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</core:BaseContentPage>

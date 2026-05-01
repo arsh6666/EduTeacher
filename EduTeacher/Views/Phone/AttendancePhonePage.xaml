@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ui:BaseContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ui="clr-namespace:Rootfly.Mobile.Core.UI.Pages;assembly=Rootfly.Mobile.Core.UI"
+    xmlns:vm="clr-namespace:EduTeacher.Shared.ViewModels;assembly=EduTeacher.Shared"
+    xmlns:dtos="clr-namespace:EduTeacher.Shared.Education.Dtos;assembly=EduTeacher.Shared"
+    x:Class="EduTeacher.Views.Phone.AttendancePhonePage"
+    x:TypeArguments="vm:MarkAttendanceViewModel"
+    Title="{Binding Title}">
+
+    <Grid RowDefinitions="Auto,Auto,Auto,*,Auto" RowSpacing="12" Padding="16">
+        <!-- Section Picker -->
+        <Frame Grid.Row="0" Padding="12" CornerRadius="12" BorderColor="Transparent" HasShadow="True"
+               BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray900}}">
+            <VerticalStackLayout Spacing="8">
+                <Label Text="Select Section" FontSize="14" FontAttributes="Bold" />
+                <CollectionView ItemsSource="{Binding Sections}" SelectionMode="Single"
+                                SelectionChangedCommand="{Binding SelectSectionCommand}"
+                                SelectionChangedCommandParameter="{Binding Source={RelativeSource Self}, Path=SelectedItem}"
+                                HeightRequest="44">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" ItemSpacing="8" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="dtos:SectionDto">
+                            <Frame Padding="10,6" CornerRadius="16" BorderColor="{StaticResource Primary}" HasShadow="False"
+                                   BackgroundColor="Transparent">
+                                <Label Text="{Binding Name}" FontSize="13" TextColor="{StaticResource Primary}" />
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </Frame>
+
+        <!-- Date picker -->
+        <HorizontalStackLayout Grid.Row="1" Spacing="12">
+            <Label Text="Date:" VerticalOptions="Center" FontAttributes="Bold" />
+            <DatePicker Date="{Binding SelectedDate}" MinimumDate="2024-01-01" />
+        </HorizontalStackLayout>
+
+        <!-- Mark all present button -->
+        <Button Grid.Row="2" Text="Mark All Present" Command="{Binding MarkAllPresentCommand}"
+                BackgroundColor="{StaticResource Secondary}" TextColor="White"
+                CornerRadius="8" HeightRequest="40" FontSize="13" />
+
+        <!-- Student list -->
+        <CollectionView Grid.Row="3" ItemsSource="{Binding Students}" EmptyView="Select a section to load students">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="vm:StudentAttendanceItem">
+                    <Frame Padding="12" CornerRadius="10" BorderColor="Transparent" HasShadow="True" Margin="0,0,0,6"
+                           BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray900}}">
+                        <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto" ColumnSpacing="8">
+                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding StudentName}" FontSize="14" FontAttributes="Bold" />
+                            <Label Grid.Row="1" Grid.Column="0" Text="{Binding RollNumber, StringFormat='Roll: {0}'}" FontSize="11" TextColor="Gray" />
+                            <HorizontalStackLayout Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Spacing="6" VerticalOptions="Center">
+                                <Button Text="P" WidthRequest="36" HeightRequest="36" CornerRadius="18" Padding="0"
+                                        BackgroundColor="#4CAF50" TextColor="White" FontSize="12" FontAttributes="Bold" />
+                                <Button Text="A" WidthRequest="36" HeightRequest="36" CornerRadius="18" Padding="0"
+                                        BackgroundColor="#F44336" TextColor="White" FontSize="12" FontAttributes="Bold" />
+                                <Button Text="L" WidthRequest="36" HeightRequest="36" CornerRadius="18" Padding="0"
+                                        BackgroundColor="#FF9800" TextColor="White" FontSize="12" FontAttributes="Bold" />
+                            </HorizontalStackLayout>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Submit FAB -->
+        <Button Grid.Row="4" Text="Submit Attendance" Command="{Binding SubmitAttendanceCommand}"
+                BackgroundColor="{StaticResource Primary}" TextColor="White"
+                CornerRadius="24" HeightRequest="50" FontSize="16" FontAttributes="Bold"
+                IsEnabled="{Binding IsSubmitting, Converter={StaticResource InvertBoolConverter}}" />
+
+        <ActivityIndicator Grid.Row="3" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"
+                           HorizontalOptions="Center" VerticalOptions="Center" Color="{StaticResource Primary}" />
+    </Grid>
+</ui:BaseContentPage>

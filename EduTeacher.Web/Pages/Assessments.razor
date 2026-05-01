@@ -1,0 +1,53 @@
+@page "/assessments"
+@inherits RootflyComponentBase<AssessmentListViewModel>
+
+<MudText Typo="Typo.h4" Class="mb-4">Assessments</MudText>
+
+<MudButton Variant="Variant.Filled" Color="Color.Primary" Class="mb-4"
+           OnClick="@(() => ViewModel.NavigateToCreateCommand.Execute(null))">
+    Create Assessment
+</MudButton>
+
+@if (ViewModel.IsBusy)
+{
+    <MudProgressLinear Indeterminate="true" Color="Color.Primary" />
+}
+else if (ViewModel.IsEmpty)
+{
+    <MudAlert Severity="Severity.Info">No assessments found.</MudAlert>
+}
+else
+{
+    <MudTable Items="ViewModel.Assessments" Hover="true" Elevation="2">
+        <HeaderContent>
+            <MudTh>Title</MudTh>
+            <MudTh>Course</MudTh>
+            <MudTh>Type</MudTh>
+            <MudTh>Due Date</MudTh>
+            <MudTh>Total Marks</MudTh>
+            <MudTh>Published</MudTh>
+            <MudTh>Submissions</MudTh>
+            <MudTh></MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd>@context.Title</MudTd>
+            <MudTd>@context.CourseName</MudTd>
+            <MudTd>@context.AssessmentType</MudTd>
+            <MudTd>@context.DueDate?.ToString("MMM dd, yyyy")</MudTd>
+            <MudTd>@context.TotalMarks</MudTd>
+            <MudTd>
+                <MudChip T="string" Size="Size.Small"
+                         Color="@(context.IsPublished ? Color.Success : Color.Default)">
+                    @(context.IsPublished ? "Published" : "Draft")
+                </MudChip>
+            </MudTd>
+            <MudTd>@context.SubmissionCount / @context.GradedCount graded</MudTd>
+            <MudTd>
+                <MudButton Size="Size.Small" Variant="Variant.Text" Color="Color.Primary"
+                           OnClick="@(() => ViewModel.NavigateToSubmissionsCommand.Execute(context.Id))">
+                    Grade
+                </MudButton>
+            </MudTd>
+        </RowTemplate>
+    </MudTable>
+}

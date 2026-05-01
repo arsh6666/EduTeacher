@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ui:BaseContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ui="clr-namespace:Rootfly.Mobile.Core.UI.Pages;assembly=Rootfly.Mobile.Core.UI"
+    xmlns:vm="clr-namespace:EduTeacher.Shared.ViewModels;assembly=EduTeacher.Shared"
+    x:Class="EduTeacher.Views.Phone.PayrollPhonePage"
+    x:TypeArguments="vm:PayrollDashboardViewModel"
+    Title="{Binding Title}">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="16" Padding="16">
+            <!-- Salary Summary Card -->
+            <Frame Padding="20" CornerRadius="16" BorderColor="Transparent"
+                   BackgroundColor="{StaticResource Primary}" HasShadow="True">
+                <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto" RowSpacing="8">
+                    <Label Grid.Row="0" Grid.ColumnSpan="2" Text="Salary Summary" FontSize="14" TextColor="#CCFFFFFF" />
+                    <VerticalStackLayout Grid.Row="1" Grid.Column="0" Spacing="2">
+                        <Label Text="CTC" FontSize="11" TextColor="#CCFFFFFF" />
+                        <Label Text="{Binding Ctc, StringFormat='₹{0:N0}'}" FontSize="20" FontAttributes="Bold" TextColor="White" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Row="1" Grid.Column="1" Spacing="2">
+                        <Label Text="Net Pay (Last)" FontSize="11" TextColor="#CCFFFFFF" />
+                        <Label Text="{Binding NetPay, StringFormat='₹{0:N0}'}" FontSize="20" FontAttributes="Bold" TextColor="White" />
+                    </VerticalStackLayout>
+                    <Label Grid.Row="2" Grid.ColumnSpan="2" Text="{Binding SalaryStructure.StructureName, StringFormat='Structure: {0}'}"
+                           FontSize="12" TextColor="#AAFFFFFF" />
+                </Grid>
+            </Frame>
+
+            <!-- Recent Payslip -->
+            <Label Text="Recent Payslip" FontSize="18" FontAttributes="Bold" />
+            <Frame Padding="16" CornerRadius="12" BorderColor="Transparent" HasShadow="True"
+                   BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray900}}"
+                   IsVisible="{Binding LatestPayslip, Converter={StaticResource IsNotNullConverter}}">
+                <Grid ColumnDefinitions="*,Auto">
+                    <VerticalStackLayout Grid.Column="0" Spacing="4">
+                        <Label FontSize="15" FontAttributes="Bold">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding LatestPayslip.Month}" />
+                                    <Span Text="/" />
+                                    <Span Text="{Binding LatestPayslip.Year}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label Text="{Binding LatestPayslip.NetPay, StringFormat='Net: ₹{0:N0}'}" FontSize="13" TextColor="{StaticResource Secondary}" />
+                    </VerticalStackLayout>
+                    <Button Grid.Column="1" Text="View" CornerRadius="8"
+                            Command="{Binding NavigateToPayslipsCommand}"
+                            BackgroundColor="{StaticResource Primary}" TextColor="White" FontSize="12" HeightRequest="36" />
+                </Grid>
+            </Frame>
+
+            <!-- Quick Links -->
+            <Label Text="Quick Links" FontSize="18" FontAttributes="Bold" Padding="0,8,0,0" />
+            <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10">
+                <Frame Grid.Column="0" Padding="12" CornerRadius="12" BorderColor="Transparent" HasShadow="True"
+                       BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray900}}">
+                    <VerticalStackLayout Spacing="6" HorizontalOptions="Center">
+                        <Label Text="📄" FontSize="24" HorizontalOptions="Center" />
+                        <Label Text="Payslips" FontSize="11" HorizontalOptions="Center" TextColor="Gray" />
+                    </VerticalStackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToPayslipsCommand}" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Frame Grid.Column="1" Padding="12" CornerRadius="12" BorderColor="Transparent" HasShadow="True"
+                       BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray900}}">
+                    <VerticalStackLayout Spacing="6" HorizontalOptions="Center">
+                        <Label Text="🧾" FontSize="24" HorizontalOptions="Center" />
+                        <Label Text="Tax" FontSize="11" HorizontalOptions="Center" TextColor="Gray" />
+                    </VerticalStackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToTaxCommand}" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Frame Grid.Column="2" Padding="12" CornerRadius="12" BorderColor="Transparent" HasShadow="True"
+                       BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray900}}">
+                    <VerticalStackLayout Spacing="6" HorizontalOptions="Center">
+                        <Label Text="💳" FontSize="24" HorizontalOptions="Center" />
+                        <Label Text="Claims" FontSize="11" HorizontalOptions="Center" TextColor="Gray" />
+                    </VerticalStackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToReimbursementsCommand}" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+            </Grid>
+
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"
+                               HorizontalOptions="Center" Color="{StaticResource Primary}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ui:BaseContentPage>

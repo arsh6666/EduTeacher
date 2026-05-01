@@ -1,0 +1,37 @@
+@page "/announcements/create"
+@inherits RootflyComponentBase<CreateAnnouncementViewModel>
+
+<MudText Typo="Typo.h4" Class="mb-4">Create Announcement</MudText>
+
+<MudCard>
+    <MudCardContent>
+        <MudGrid>
+            <MudItem xs="12">
+                <MudTextField @bind-Value="ViewModel.AnnouncementTitle" Label="Title" Variant="Variant.Outlined" />
+            </MudItem>
+            <MudItem xs="12">
+                <MudTextField @bind-Value="ViewModel.Content" Label="Content" Variant="Variant.Outlined"
+                              Lines="5" />
+            </MudItem>
+            <MudItem xs="12" sm="6">
+                <MudTextField @bind-Value="ViewModel.Audience" Label="Audience" Variant="Variant.Outlined" />
+            </MudItem>
+        </MudGrid>
+    </MudCardContent>
+    <MudCardActions>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary"
+                   Disabled="ViewModel.IsSubmitting"
+                   OnClick="@(() => ViewModel.CreateAndPublishCommand.Execute(null))">
+            @if (ViewModel.IsSubmitting)
+            {
+                <MudProgressCircular Size="Size.Small" Indeterminate="true" Class="mr-2" />
+            }
+            Create & Publish
+        </MudButton>
+        <MudButton Variant="Variant.Outlined" Color="Color.Default"
+                   Disabled="ViewModel.IsSubmitting"
+                   OnClick="@(() => ViewModel.SaveDraftCommand.Execute(null))">
+            Save Draft
+        </MudButton>
+    </MudCardActions>
+</MudCard>

@@ -1,0 +1,34 @@
+@page "/chat"
+@inherits RootflyComponentBase<ChatListViewModel>
+
+<MudText Typo="Typo.h4" Class="mb-4">Chat</MudText>
+
+<MudTextField @bind-Value="ViewModel.SearchQuery" Label="Search" Variant="Variant.Outlined"
+              Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" Class="mb-4" />
+
+@if (ViewModel.IsBusy)
+{
+    <MudProgressLinear Indeterminate="true" Color="Color.Primary" />
+}
+else
+{
+    <MudList T="ChatContactDto">
+        @foreach (var contact in ViewModel.Contacts)
+        {
+            <MudListItem T="ChatContactDto" OnClick="@(() => ViewModel.OpenConversationCommand.Execute(contact.UserId))">
+                <div class="d-flex justify-space-between align-center" style="width: 100%;">
+                    <div>
+                        <MudText Typo="Typo.subtitle1">@contact.UserName</MudText>
+                        <MudText Typo="Typo.body2" Color="Color.Secondary">@contact.LastMessage</MudText>
+                        <MudText Typo="Typo.caption">@contact.LastMessageTime?.ToString("MMM dd, HH:mm")</MudText>
+                    </div>
+                    @if (contact.UnreadCount > 0)
+                    {
+                        <MudBadge Content="@contact.UnreadCount" Color="Color.Primary" Overlap="false" />
+                    }
+                </div>
+            </MudListItem>
+            <MudDivider />
+        }
+    </MudList>
+}

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="EduTeacher.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:phone="clr-namespace:EduTeacher.Views.Phone"
+    Shell.FlyoutBehavior="Disabled">
+
+    <!-- Login (no tabs) -->
+    <ShellContent
+        Title="Login"
+        ContentTemplate="{DataTemplate phone:LoginPhonePage}"
+        Route="Login"
+        Shell.TabBarIsVisible="False" />
+
+    <!-- Main tabs -->
+    <TabBar Route="Main">
+        <ShellContent
+            Title="Dashboard"
+            ContentTemplate="{DataTemplate phone:DashboardPhonePage}"
+            Route="Dashboard"
+            Icon="{OnPlatform Default='home_24.png'}" />
+
+        <ShellContent
+            Title="Schedule"
+            ContentTemplate="{DataTemplate phone:SchedulePhonePage}"
+            Route="Schedule"
+            Icon="{OnPlatform Default='calendar_24.png'}" />
+
+        <ShellContent
+            Title="Attendance"
+            ContentTemplate="{DataTemplate phone:AttendancePhonePage}"
+            Route="Attendance"
+            Icon="{OnPlatform Default='checklist_24.png'}" />
+
+        <ShellContent
+            Title="Assessments"
+            ContentTemplate="{DataTemplate phone:AssessmentListPhonePage}"
+            Route="Assessments"
+            Icon="{OnPlatform Default='document_24.png'}" />
+
+        <ShellContent
+            Title="Payroll"
+            ContentTemplate="{DataTemplate phone:PayrollPhonePage}"
+            Route="Payroll"
+            Icon="{OnPlatform Default='wallet_24.png'}" />
+
+        <ShellContent
+            Title="Chat"
+            ContentTemplate="{DataTemplate phone:ChatListPhonePage}"
+            Route="ChatList"
+            Icon="{OnPlatform Default='chat_24.png'}" />
+
+        <ShellContent
+            Title="Profile"
+            ContentTemplate="{DataTemplate phone:ProfilePhonePage}"
+            Route="Profile"
+            Icon="{OnPlatform Default='person_24.png'}" />
+    </TabBar>
+
+</Shell>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ui:BaseContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ui="clr-namespace:Rootfly.Mobile.Core.UI.Pages;assembly=Rootfly.Mobile.Core.UI"
+    xmlns:vm="clr-namespace:EduTeacher.Shared.ViewModels;assembly=EduTeacher.Shared"
+    xmlns:dtos="clr-namespace:EduTeacher.Shared.Education.Dtos;assembly=EduTeacher.Shared"
+    x:Class="EduTeacher.Views.Phone.PayslipListPhonePage"
+    x:TypeArguments="vm:PayslipListViewModel"
+    Title="{Binding Title}">
+
+    <CollectionView ItemsSource="{Binding Payslips}" EmptyView="No payslips found" Margin="16">
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="dtos:SalarySlipDto">
+                <Frame Padding="16" CornerRadius="12" BorderColor="Transparent" HasShadow="True" Margin="0,0,0,10"
+                       BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray900}}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:PayslipListViewModel}}, Path=ViewDetailCommand}"
+                                             CommandParameter="{Binding .}" />
+                    </Frame.GestureRecognizers>
+                    <Grid ColumnDefinitions="*,Auto">
+                        <VerticalStackLayout Grid.Column="0" Spacing="4">
+                            <Label FontSize="16" FontAttributes="Bold">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding Month}" />
+                                        <Span Text=" / " />
+                                        <Span Text="{Binding Year}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <HorizontalStackLayout Spacing="16">
+                                <Label Text="{Binding GrossEarnings, StringFormat='Earnings: ₹{0:N0}'}" FontSize="11" TextColor="{StaticResource Secondary}" />
+                                <Label Text="{Binding GrossDeductions, StringFormat='Deductions: ₹{0:N0}'}" FontSize="11" TextColor="{StaticResource Error}" />
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
+                            <Label Text="Net Pay" FontSize="10" TextColor="Gray" HorizontalOptions="End" />
+                            <Label Text="{Binding NetPay, StringFormat='₹{0:N0}'}" FontSize="16" FontAttributes="Bold"
+                                   TextColor="{StaticResource Primary}" HorizontalOptions="End" />
+                        </VerticalStackLayout>
+                    </Grid>
+                </Frame>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ui:BaseContentPage>

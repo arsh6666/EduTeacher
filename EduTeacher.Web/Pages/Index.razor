@@ -1,0 +1,67 @@
+@page "/"
+@inherits RootflyComponentBase<DashboardViewModel>
+
+<MudText Typo="Typo.h4" Class="mb-2">@ViewModel.WelcomeMessage</MudText>
+<MudText Typo="Typo.subtitle1" Color="Color.Secondary" Class="mb-4">@ViewModel.TodayDate</MudText>
+
+@if (ViewModel.IsBusy)
+{
+    <MudProgressLinear Indeterminate="true" Color="Color.Primary" />
+}
+else
+{
+    <MudGrid Class="mb-6">
+        <MudItem xs="12" sm="4">
+            <MudCard>
+                <MudCardContent>
+                    <MudText Typo="Typo.subtitle2" Color="Color.Secondary">Today's Classes</MudText>
+                    <MudText Typo="Typo.h4">@ViewModel.TodayClassesCount</MudText>
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton Size="Size.Small" Color="Color.Primary"
+                               OnClick="@(() => ViewModel.NavigateToAttendanceCommand.Execute(null))">
+                        View Attendance
+                    </MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+        <MudItem xs="12" sm="4">
+            <MudCard>
+                <MudCardContent>
+                    <MudText Typo="Typo.subtitle2" Color="Color.Secondary">Pending Attendance</MudText>
+                    <MudText Typo="Typo.h4">@ViewModel.PendingAttendanceCount</MudText>
+                </MudCardContent>
+            </MudCard>
+        </MudItem>
+        <MudItem xs="12" sm="4">
+            <MudCard>
+                <MudCardContent>
+                    <MudText Typo="Typo.subtitle2" Color="Color.Secondary">Recent Submissions</MudText>
+                    <MudText Typo="Typo.h4">@ViewModel.RecentSubmissionsCount</MudText>
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton Size="Size.Small" Color="Color.Primary"
+                               OnClick="@(() => ViewModel.NavigateToAssessmentsCommand.Execute(null))">
+                        View Assessments
+                    </MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+
+    <MudText Typo="Typo.h6" Class="mb-2">Today's Schedule</MudText>
+    <MudTable Items="ViewModel.TodaySchedule" Hover="true" Elevation="2">
+        <HeaderContent>
+            <MudTh>Time</MudTh>
+            <MudTh>Course</MudTh>
+            <MudTh>Section</MudTh>
+            <MudTh>Room</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd>@context.StartTime.ToString("hh\\:mm") - @context.EndTime.ToString("hh\\:mm")</MudTd>
+            <MudTd>@context.CourseName</MudTd>
+            <MudTd>@context.SectionName</MudTd>
+            <MudTd>@context.RoomName</MudTd>
+        </RowTemplate>
+    </MudTable>
+}

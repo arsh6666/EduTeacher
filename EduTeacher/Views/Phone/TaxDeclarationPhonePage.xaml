@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ui:BaseContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ui="clr-namespace:Rootfly.Mobile.Core.UI.Pages;assembly=Rootfly.Mobile.Core.UI"
+    xmlns:vm="clr-namespace:EduTeacher.Shared.ViewModels;assembly=EduTeacher.Shared"
+    xmlns:dtos="clr-namespace:EduTeacher.Shared.Education.Dtos;assembly=EduTeacher.Shared"
+    x:Class="EduTeacher.Views.Phone.TaxDeclarationPhonePage"
+    x:TypeArguments="vm:TaxDeclarationViewModel"
+    Title="{Binding Title}">
+
+    <ScrollView Padding="16">
+        <VerticalStackLayout Spacing="16">
+            <!-- Header -->
+            <Frame Padding="16" CornerRadius="12" BorderColor="Transparent" HasShadow="True"
+                   BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray900}}">
+                <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" RowSpacing="8">
+                    <Label Grid.Row="0" Grid.Column="0" Text="Fiscal Year" FontSize="11" TextColor="Gray" />
+                    <Label Grid.Row="0" Grid.Column="1" Text="Regime" FontSize="11" TextColor="Gray" />
+                    <Label Grid.Row="1" Grid.Column="0" Text="{Binding FiscalYear}" FontSize="16" FontAttributes="Bold" />
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Declaration.Regime}" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource Primary}" />
+                </Grid>
+            </Frame>
+
+            <!-- Status -->
+            <HorizontalStackLayout Spacing="8">
+                <Label Text="Status:" FontSize="13" FontAttributes="Bold" />
+                <Label Text="{Binding Declaration.Status}" FontSize="13" TextColor="{StaticResource Secondary}" />
+            </HorizontalStackLayout>
+
+            <!-- Declaration lines -->
+            <Label Text="Declarations" FontSize="16" FontAttributes="Bold" />
+            <CollectionView ItemsSource="{Binding Lines}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="dtos:TaxDeclarationLineDto">
+                        <Frame Padding="12" CornerRadius="10" BorderColor="Transparent" HasShadow="True" Margin="0,0,0,8"
+                               BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray900}}">
+                            <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto" RowSpacing="4">
+                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding SectionCode}" FontSize="14" FontAttributes="Bold" />
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding DeclaredAmount, StringFormat='₹{0:N0}'}" FontSize="14"
+                                       FontAttributes="Bold" TextColor="{StaticResource Primary}" />
+                                <Label Grid.Row="1" Grid.Column="0" Text="{Binding Description}" FontSize="11" TextColor="Gray" />
+                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding ApprovedAmount, StringFormat='Approved: ₹{0:N0}'}" FontSize="10" TextColor="{StaticResource Secondary}" />
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Totals -->
+            <Frame Padding="14" CornerRadius="12" BorderColor="Transparent" HasShadow="True"
+                   BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray900}}">
+                <Grid ColumnDefinitions="*,Auto">
+                    <Label Grid.Column="0" Text="Total Declared" FontSize="14" FontAttributes="Bold" />
+                    <Label Grid.Column="1" Text="{Binding Declaration.TotalDeclaredAmount, StringFormat='₹{0:N0}'}"
+                           FontSize="16" FontAttributes="Bold" TextColor="{StaticResource Primary}" />
+                </Grid>
+            </Frame>
+
+            <!-- Submit -->
+            <Button Text="Submit Declaration" Command="{Binding SubmitCommand}"
+                    BackgroundColor="{StaticResource Primary}" TextColor="White"
+                    CornerRadius="12" HeightRequest="50" FontAttributes="Bold"
+                    IsVisible="{Binding CanSubmit}" />
+
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"
+                               HorizontalOptions="Center" Color="{StaticResource Primary}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ui:BaseContentPage>

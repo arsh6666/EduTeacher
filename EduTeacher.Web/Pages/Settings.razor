@@ -1,0 +1,34 @@
+@page "/settings"
+@inherits RootflyComponentBase<NotificationPreferencesViewModel>
+
+<MudText Typo="Typo.h4" Class="mb-4">Notification Settings</MudText>
+
+@if (ViewModel.IsBusy)
+{
+    <MudProgressLinear Indeterminate="true" Color="Color.Primary" />
+}
+else
+{
+    <MudCard>
+        <MudCardContent>
+            <MudSwitch @bind-Value="ViewModel.AttendanceAlerts" Label="Attendance Alerts" Color="Color.Primary" />
+            <MudSwitch @bind-Value="ViewModel.GradeAlerts" Label="Grade Alerts" Color="Color.Primary" />
+            <MudSwitch @bind-Value="ViewModel.FeeAlerts" Label="Fee Alerts" Color="Color.Primary" />
+            <MudSwitch @bind-Value="ViewModel.AssignmentAlerts" Label="Assignment Alerts" Color="Color.Primary" />
+            <MudSwitch @bind-Value="ViewModel.AnnouncementAlerts" Label="Announcement Alerts" Color="Color.Primary" />
+            <MudSwitch @bind-Value="ViewModel.ChatAlerts" Label="Chat Alerts" Color="Color.Primary" />
+            <MudSwitch @bind-Value="ViewModel.ScheduleAlerts" Label="Schedule Alerts" Color="Color.Primary" />
+        </MudCardContent>
+        <MudCardActions>
+            <MudButton Variant="Variant.Filled" Color="Color.Primary"
+                       Disabled="ViewModel.IsSaving"
+                       OnClick="@(() => ViewModel.SaveCommand.Execute(null))">
+                @if (ViewModel.IsSaving)
+                {
+                    <MudProgressCircular Size="Size.Small" Indeterminate="true" Class="mr-2" />
+                }
+                Save
+            </MudButton>
+        </MudCardActions>
+    </MudCard>
+}

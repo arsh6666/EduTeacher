@@ -1,0 +1,42 @@
+@page "/payroll/payslips"
+@inherits RootflyComponentBase<PayslipListViewModel>
+
+<MudText Typo="Typo.h4" Class="mb-4">Payslips</MudText>
+
+@if (ViewModel.IsBusy)
+{
+    <MudProgressLinear Indeterminate="true" Color="Color.Primary" />
+}
+else
+{
+    <MudTable Items="ViewModel.Payslips" Hover="true" Elevation="2">
+        <HeaderContent>
+            <MudTh>Period</MudTh>
+            <MudTh>Gross Earnings</MudTh>
+            <MudTh>Gross Deductions</MudTh>
+            <MudTh>Net Pay</MudTh>
+            <MudTh>Status</MudTh>
+            <MudTh>Paid On</MudTh>
+            <MudTh></MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd>@context.Month / @context.Year</MudTd>
+            <MudTd>@context.GrossEarnings.ToString("C")</MudTd>
+            <MudTd>@context.GrossDeductions.ToString("C")</MudTd>
+            <MudTd>@context.NetPay.ToString("C")</MudTd>
+            <MudTd>
+                <MudChip T="string" Size="Size.Small"
+                         Color="@(context.Status == "Paid" ? Color.Success : Color.Warning)">
+                    @context.Status
+                </MudChip>
+            </MudTd>
+            <MudTd>@context.PaidOn?.ToString("MMM dd, yyyy")</MudTd>
+            <MudTd>
+                <MudButton Size="Size.Small" Variant="Variant.Text" Color="Color.Primary"
+                           OnClick="@(() => ViewModel.ViewDetailCommand.Execute(context.Id))">
+                    View
+                </MudButton>
+            </MudTd>
+        </RowTemplate>
+    </MudTable>
+}

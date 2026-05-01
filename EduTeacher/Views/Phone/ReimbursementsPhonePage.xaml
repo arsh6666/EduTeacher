@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ui:BaseContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ui="clr-namespace:Rootfly.Mobile.Core.UI.Pages;assembly=Rootfly.Mobile.Core.UI"
+    xmlns:vm="clr-namespace:EduTeacher.Shared.ViewModels;assembly=EduTeacher.Shared"
+    xmlns:dtos="clr-namespace:EduTeacher.Shared.Education.Dtos;assembly=EduTeacher.Shared"
+    x:Class="EduTeacher.Views.Phone.ReimbursementsPhonePage"
+    x:TypeArguments="vm:ReimbursementViewModel"
+    Title="{Binding Title}">
+
+    <Grid RowDefinitions="Auto,*" RowSpacing="12" Padding="16">
+        <!-- New claim form -->
+        <Frame Grid.Row="0" Padding="14" CornerRadius="12" BorderColor="Transparent" HasShadow="True"
+               BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray900}}">
+            <VerticalStackLayout Spacing="10">
+                <Label Text="New Claim" FontSize="14" FontAttributes="Bold" />
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                    <Entry Grid.Column="0" Placeholder="Type (Medical, Travel...)" Text="{Binding ClaimType}" />
+                    <Entry Grid.Column="1" Placeholder="Amount" Text="{Binding ClaimAmount}" Keyboard="Numeric" />
+                </Grid>
+                <Entry Placeholder="Description" Text="{Binding ClaimDescription}" />
+                <Button Text="Submit Claim" Command="{Binding SubmitClaimCommand}"
+                        BackgroundColor="{StaticResource Primary}" TextColor="White"
+                        CornerRadius="8" HeightRequest="40" FontSize="13"
+                        IsEnabled="{Binding IsSubmitting, Converter={StaticResource InvertBoolConverter}}" />
+            </VerticalStackLayout>
+        </Frame>
+
+        <!-- Claims list -->
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Claims}" EmptyView="No claims yet">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="dtos:ReimbursementClaimDto">
+                    <Frame Padding="14" CornerRadius="10" BorderColor="Transparent" HasShadow="True" Margin="0,0,0,8"
+                           BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray900}}">
+                        <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto" RowSpacing="4">
+                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Type}" FontSize="14" FontAttributes="Bold" />
+                            <Frame Grid.Row="0" Grid.Column="1" Padding="6,3" CornerRadius="8" HasShadow="False"
+                                   BackgroundColor="{StaticResource Gray200}" BorderColor="Transparent">
+                                <Label Text="{Binding Status}" FontSize="10" />
+                            </Frame>
+                            <HorizontalStackLayout Grid.Row="1" Grid.ColumnSpan="2" Spacing="16">
+                                <Label Text="{Binding Amount, StringFormat='₹{0:N0}'}" FontSize="13" TextColor="{StaticResource Primary}" FontAttributes="Bold" />
+                                <Label Text="{Binding RequestDate, StringFormat='{0:MMM dd, yyyy}'}" FontSize="11" TextColor="Gray" />
+                            </HorizontalStackLayout>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <ActivityIndicator Grid.Row="1" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"
+                           HorizontalOptions="Center" VerticalOptions="Center" Color="{StaticResource Primary}" />
+    </Grid>
+</ui:BaseContentPage>

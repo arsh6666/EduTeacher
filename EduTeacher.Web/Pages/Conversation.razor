@@ -1,0 +1,46 @@
+@page "/chat/{UserId:guid}"
+@inherits RootflyComponentBase<ConversationViewModel>
+
+<MudText Typo="Typo.h5" Class="mb-4">@ViewModel.TargetUserName</MudText>
+
+@if (ViewModel.IsBusy)
+{
+    <MudProgressLinear Indeterminate="true" Color="Color.Primary" />
+}
+else
+{
+    <div style="height: 60vh; overflow-y: auto; display: flex; flex-direction: column;" class="mb-4">
+        @foreach (var msg in ViewModel.Messages)
+        {
+            <div class="d-flex @(msg.IsOwnMessage ? "justify-end" : "justify-start") mb-2">
+                <MudPaper Class="pa-3" Style="max-width: 70%;"
+                          Elevation="1"
+                          Square="false">
+                    @if (!msg.IsOwnMessage)
+                    {
+                        <MudText Typo="Typo.caption" Color="Color.Primary">@msg.SenderName</MudText>
+                    }
+                    <MudText Typo="Typo.body1">@msg.Text</MudText>
+                    <MudText Typo="Typo.caption" Color="Color.Secondary">@msg.CreationTime.ToString("HH:mm")</MudText>
+                </MudPaper>
+            </div>
+        }
+    </div>
+
+    <div class="d-flex gap-2">
+        <MudTextField @bind-Value="ViewModel.MessageText" Label="Message" Variant="Variant.Outlined"
+                      Class="flex-grow-1" />
+        <MudIconButton Icon="@Icons.Material.Filled.Send" Color="Color.Primary"
+                       OnClick="@(() => ViewModel.SendMessageCommand.Execute(null))" />
+    </div>
+}
+
+@code {
+    [Parameter] public Guid UserId { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        await ViewModel.InitializeAsync(UserId, string.Empty);
+    }
+}

@@ -1,0 +1,41 @@
+@page "/schedule"
+@inherits RootflyComponentBase<ScheduleViewModel>
+
+<MudText Typo="Typo.h4" Class="mb-4">Schedule</MudText>
+
+<MudButtonGroup OverrideStyles="false" Class="mb-4">
+    @foreach (DayOfWeek day in Enum.GetValues<DayOfWeek>())
+    {
+        <MudButton Variant="@(ViewModel.SelectedDay == day ? Variant.Filled : Variant.Outlined)"
+                   Color="Color.Primary"
+                   OnClick="@(() => ViewModel.SelectDayCommand.Execute(day))">
+            @day.ToString().Substring(0, 3)
+        </MudButton>
+    }
+</MudButtonGroup>
+
+@if (ViewModel.IsBusy)
+{
+    <MudProgressLinear Indeterminate="true" Color="Color.Primary" />
+}
+else
+{
+    <MudTable Items="ViewModel.ScheduleEntries" Hover="true" Elevation="2">
+        <HeaderContent>
+            <MudTh>Day</MudTh>
+            <MudTh>Start</MudTh>
+            <MudTh>End</MudTh>
+            <MudTh>Course</MudTh>
+            <MudTh>Section</MudTh>
+            <MudTh>Room</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd>@context.DayOfWeek</MudTd>
+            <MudTd>@context.StartTime.ToString("hh\\:mm")</MudTd>
+            <MudTd>@context.EndTime.ToString("hh\\:mm")</MudTd>
+            <MudTd>@context.CourseName</MudTd>
+            <MudTd>@context.SectionName</MudTd>
+            <MudTd>@context.RoomName</MudTd>
+        </RowTemplate>
+    </MudTable>
+}

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ui:BaseContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ui="clr-namespace:Rootfly.Mobile.Core.UI.Pages;assembly=Rootfly.Mobile.Core.UI"
+    xmlns:vm="clr-namespace:EduTeacher.Shared.ViewModels;assembly=EduTeacher.Shared"
+    xmlns:dtos="clr-namespace:EduTeacher.Shared.Education.Dtos;assembly=EduTeacher.Shared"
+    x:Class="EduTeacher.Views.Phone.CreateAssessmentPhonePage"
+    x:TypeArguments="vm:CreateAssessmentViewModel"
+    Title="{Binding Title}">
+
+    <ScrollView Padding="16">
+        <VerticalStackLayout Spacing="16">
+            <!-- Title -->
+            <VerticalStackLayout Spacing="4">
+                <Label Text="Title" FontSize="13" FontAttributes="Bold" />
+                <Entry Placeholder="Assessment title" Text="{Binding AssessmentTitle}" />
+            </VerticalStackLayout>
+
+            <!-- Description -->
+            <VerticalStackLayout Spacing="4">
+                <Label Text="Description" FontSize="13" FontAttributes="Bold" />
+                <Editor Placeholder="Describe the assessment..." Text="{Binding Description}" HeightRequest="100" />
+            </VerticalStackLayout>
+
+            <!-- Type -->
+            <VerticalStackLayout Spacing="4">
+                <Label Text="Type" FontSize="13" FontAttributes="Bold" />
+                <Picker ItemsSource="{Binding AssessmentTypes}" SelectedItem="{Binding AssessmentType}" />
+            </VerticalStackLayout>
+
+            <!-- Section -->
+            <VerticalStackLayout Spacing="4">
+                <Label Text="Section" FontSize="13" FontAttributes="Bold" />
+                <Picker ItemsSource="{Binding Sections}" SelectedItem="{Binding SelectedSection}"
+                        ItemDisplayBinding="{Binding Name}" />
+            </VerticalStackLayout>
+
+            <!-- Due Date -->
+            <VerticalStackLayout Spacing="4">
+                <Label Text="Due Date" FontSize="13" FontAttributes="Bold" />
+                <DatePicker Date="{Binding DueDate}" MinimumDate="{x:Static sys:DateTime.Today}"
+                            xmlns:sys="clr-namespace:System;assembly=netstandard" />
+            </VerticalStackLayout>
+
+            <!-- Total Marks -->
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                <VerticalStackLayout Grid.Column="0" Spacing="4">
+                    <Label Text="Total Marks" FontSize="13" FontAttributes="Bold" />
+                    <Entry Text="{Binding TotalMarks}" Keyboard="Numeric" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="1" Spacing="4">
+                    <Label Text="Weight %" FontSize="13" FontAttributes="Bold" />
+                    <Entry Text="{Binding WeightPercentage}" Keyboard="Numeric" />
+                </VerticalStackLayout>
+            </Grid>
+
+            <!-- Error -->
+            <Label Text="{Binding ErrorMessage}" TextColor="{StaticResource Error}" FontSize="12"
+                   IsVisible="{Binding ErrorMessage, Converter={StaticResource StringToVisibilityConverter}}" />
+
+            <!-- Submit -->
+            <Button Text="Create Assessment" Command="{Binding CreateCommand}"
+                    BackgroundColor="{StaticResource Primary}" TextColor="White"
+                    CornerRadius="12" HeightRequest="50" FontAttributes="Bold"
+                    IsEnabled="{Binding IsSubmitting, Converter={StaticResource InvertBoolConverter}}" />
+
+            <ActivityIndicator IsRunning="{Binding IsSubmitting}" IsVisible="{Binding IsSubmitting}"
+                               HorizontalOptions="Center" Color="{StaticResource Primary}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ui:BaseContentPage>

@@ -1,0 +1,50 @@
+@page "/assessments/create"
+@inherits RootflyComponentBase<CreateAssessmentViewModel>
+
+<MudText Typo="Typo.h4" Class="mb-4">Create Assessment</MudText>
+
+<MudCard>
+    <MudCardContent>
+        <MudGrid>
+            <MudItem xs="12">
+                <MudTextField @bind-Value="ViewModel.AssessmentTitle" Label="Title" Variant="Variant.Outlined" />
+            </MudItem>
+            <MudItem xs="12">
+                <MudTextField @bind-Value="ViewModel.Description" Label="Description" Variant="Variant.Outlined"
+                              Lines="3" />
+            </MudItem>
+            <MudItem xs="12" sm="6">
+                <MudTextField @bind-Value="ViewModel.AssessmentType" Label="Assessment Type" Variant="Variant.Outlined" />
+            </MudItem>
+            <MudItem xs="12" sm="6">
+                <MudSelect T="SectionDto" @bind-Value="ViewModel.SelectedSection" Label="Section"
+                           Variant="Variant.Outlined" ToStringFunc="@(s => s?.Name ?? string.Empty)">
+                    @foreach (var section in ViewModel.Sections)
+                    {
+                        <MudSelectItem T="SectionDto" Value="@(section)">@(section.Name)</MudSelectItem>
+                    }
+                </MudSelect>
+            </MudItem>
+            <MudItem xs="12" sm="4">
+                <MudDatePicker Date="@ViewModel.DueDate" DateChanged="@(d => { if (d.HasValue) ViewModel.DueDate = d.Value; })" Label="Due Date" Variant="Variant.Outlined" />
+            </MudItem>
+            <MudItem xs="12" sm="4">
+                <MudNumericField @bind-Value="ViewModel.TotalMarks" Label="Total Marks" Variant="Variant.Outlined" />
+            </MudItem>
+            <MudItem xs="12" sm="4">
+                <MudNumericField @bind-Value="ViewModel.WeightPercentage" Label="Weight %" Variant="Variant.Outlined" />
+            </MudItem>
+        </MudGrid>
+    </MudCardContent>
+    <MudCardActions>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary"
+                   Disabled="ViewModel.IsSubmitting"
+                   OnClick="@(() => ViewModel.CreateCommand.Execute(null))">
+            @if (ViewModel.IsSubmitting)
+            {
+                <MudProgressCircular Size="Size.Small" Indeterminate="true" Class="mr-2" />
+            }
+            Create
+        </MudButton>
+    </MudCardActions>
+</MudCard>
