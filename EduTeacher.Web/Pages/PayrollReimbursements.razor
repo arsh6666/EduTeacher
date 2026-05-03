@@ -1,0 +1,32 @@
+@page "/payroll/reimbursements"
+@using EduTeacher.Shared.ViewModels
+@using EduTeacher.Shared.Payroll.Dtos
+@inject ReimbursementsViewModel ViewModel
+
+<MudText Typo="Typo.h5" Class="mb-4">Reimbursements</MudText>
+
+@if (ViewModel.IsBusy)
+{
+    <MudProgressLinear Indeterminate="true" />
+}
+else
+{
+    <MudGrid Class="mb-4">
+        <MudItem xs="4"><MudPaper Class="pa-3"><MudText Typo="Typo.subtitle2">Pending</MudText><MudText Typo="Typo.h6">@ViewModel.PendingCount</MudText></MudPaper></MudItem>
+        <MudItem xs="4"><MudPaper Class="pa-3"><MudText Typo="Typo.subtitle2">Approved</MudText><MudText Typo="Typo.h6">@ViewModel.ApprovedCount</MudText></MudPaper></MudItem>
+        <MudItem xs="4"><MudPaper Class="pa-3"><MudText Typo="Typo.subtitle2">Total Approved</MudText><MudText Typo="Typo.h6">@ViewModel.TotalApproved.ToString("C")</MudText></MudPaper></MudItem>
+    </MudGrid>
+
+    <MudDataGrid T="ReimbursementClaimDto" Items="@ViewModel.Claims" Dense="true" Hover="true">
+        <Columns>
+            <PropertyColumn Property="x => x.ClaimDate" Title="Date" Format="dd MMM yyyy" />
+            <PropertyColumn Property="x => x.TotalAmount" Title="Amount" Format="C" />
+            <PropertyColumn Property="x => x.Status" Title="Status" />
+            <PropertyColumn Property="x => x.Notes" Title="Notes" />
+        </Columns>
+    </MudDataGrid>
+}
+
+@code {
+    protected override async Task OnInitializedAsync() => await ViewModel.OnAppearingAsync();
+}

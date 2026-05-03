@@ -1,51 +1,90 @@
 @page "/payroll"
-@inherits RootflyComponentBase<PayrollDashboardViewModel>
+@using EduTeacher.Shared.ViewModels
+@using EduTeacher.Shared.Payroll.Dtos
+@inject PayrollDashboardViewModel ViewModel
 
 <MudText Typo="Typo.h4" Class="mb-4">Payroll</MudText>
 
 @if (ViewModel.IsBusy)
 {
-    <MudProgressLinear Indeterminate="true" Color="Color.Primary" />
+    <MudProgressLinear Indeterminate="true" />
 }
 else
 {
-    <MudGrid Class="mb-6">
-        <MudItem xs="12" sm="6">
-            <MudCard>
-                <MudCardContent>
-                    <MudText Typo="Typo.subtitle2" Color="Color.Secondary">Net Pay</MudText>
-                    <MudText Typo="Typo.h4">@ViewModel.NetPay.ToString("C")</MudText>
-                </MudCardContent>
-            </MudCard>
+    <MudGrid>
+        <MudItem xs="12" sm="4">
+            <MudPaper Class="pa-4" Elevation="2">
+                <MudText Typo="Typo.subtitle2" Color="Color.Primary">Net Pay</MudText>
+                <MudText Typo="Typo.h5">@ViewModel.NetPay.ToString("C")</MudText>
+                <MudText Typo="Typo.caption">@ViewModel.PayPeriod</MudText>
+            </MudPaper>
         </MudItem>
-        <MudItem xs="12" sm="6">
-            <MudCard>
-                <MudCardContent>
-                    <MudText Typo="Typo.subtitle2" Color="Color.Secondary">CTC</MudText>
-                    <MudText Typo="Typo.h4">@ViewModel.Ctc.ToString("C")</MudText>
-                </MudCardContent>
-            </MudCard>
+        <MudItem xs="12" sm="4">
+            <MudPaper Class="pa-4" Elevation="2">
+                <MudText Typo="Typo.subtitle2" Color="Color.Primary">Gross Pay</MudText>
+                <MudText Typo="Typo.h5">@ViewModel.GrossPay.ToString("C")</MudText>
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="12" sm="4">
+            <MudPaper Class="pa-4" Elevation="2">
+                <MudText Typo="Typo.subtitle2" Color="Color.Primary">CTC</MudText>
+                <MudText Typo="Typo.h5">@ViewModel.Ctc.ToString("C")</MudText>
+            </MudPaper>
         </MudItem>
     </MudGrid>
 
-    <MudGrid>
-        <MudItem xs="12" sm="4">
-            <MudButton Variant="Variant.Outlined" Color="Color.Primary" FullWidth="true"
-                       OnClick="@(() => ViewModel.NavigateToPayslipsCommand.Execute(null))">
-                View Payslips
-            </MudButton>
+    @if (ViewModel.LatestPayslip is not null)
+    {
+        <MudText Typo="Typo.h6" Class="mt-6 mb-2">Latest Payslip — @ViewModel.LatestPayslip.SlipNumber</MudText>
+        <MudGrid>
+            <MudItem xs="12" md="6">
+                <MudText Typo="Typo.subtitle1">Earnings</MudText>
+                <MudSimpleTable Dense="true">
+                    <thead><tr><th>Component</th><th>Amount</th></tr></thead>
+                    <tbody>
+                        @foreach (var e in ViewModel.LatestPayslip.Earnings)
+                        {
+                            <tr><td>@e.ComponentName</td><td>@e.Amount.ToString("C")</td></tr>
+                        }
+                        <tr style="font-weight:bold"><td>Total Earnings</td><td>@ViewModel.LatestPayslip.TotalEarnings.ToString("C")</td></tr>
+                    </tbody>
+                </MudSimpleTable>
+            </MudItem>
+            <MudItem xs="12" md="6">
+                <MudText Typo="Typo.subtitle1">Deductions</MudText>
+                <MudSimpleTable Dense="true">
+                    <thead><tr><th>Component</th><th>Amount</th></tr></thead>
+                    <tbody>
+                        @foreach (var d in ViewModel.LatestPayslip.Deductions)
+                        {
+                            <tr><td>@d.ComponentName</td><td>@d.Amount.ToString("C")</td></tr>
+                        }
+                        <tr style="font-weight:bold"><td>Total Deductions</td><td>@ViewModel.LatestPayslip.TotalDeductions.ToString("C")</td></tr>
+                    </tbody>
+                </MudSimpleTable>
+            </MudItem>
+        </MudGrid>
+    }
+
+    <MudGrid Class="mt-6">
+        <MudItem xs="6" sm="4" md="2">
+            <MudButton Variant="Variant.Outlined" Color="Color.Primary" FullWidth="true" OnClick="@(() => ViewModel.NavigateToPayslipsCommand.Execute(null))">Payslips</MudButton>
         </MudItem>
-        <MudItem xs="12" sm="4">
-            <MudButton Variant="Variant.Outlined" Color="Color.Primary" FullWidth="true"
-                       OnClick="@(() => ViewModel.NavigateToTaxCommand.Execute(null))">
-                Tax Declaration
-            </MudButton>
+        <MudItem xs="6" sm="4" md="2">
+            <MudButton Variant="Variant.Outlined" Color="Color.Primary" FullWidth="true" OnClick="@(() => ViewModel.NavigateToTaxDeclarationCommand.Execute(null))">Tax</MudButton>
         </MudItem>
-        <MudItem xs="12" sm="4">
-            <MudButton Variant="Variant.Outlined" Color="Color.Primary" FullWidth="true"
-                       OnClick="@(() => ViewModel.NavigateToReimbursementsCommand.Execute(null))">
-                Reimbursements
-            </MudButton>
+        <MudItem xs="6" sm="4" md="2">
+            <MudButton Variant="Variant.Outlined" Color="Color.Primary" FullWidth="true" OnClick="@(() => ViewModel.NavigateToReimbursementsCommand.Execute(null))">Reimbursements</MudButton>
+        </MudItem>
+        <MudItem xs="6" sm="4" md="2">
+            <MudButton Variant="Variant.Outlined" Color="Color.Primary" FullWidth="true" OnClick="@(() => ViewModel.NavigateToSalaryAdvanceCommand.Execute(null))">Advance</MudButton>
+        </MudItem>
+        <MudItem xs="6" sm="4" md="2">
+            <MudButton Variant="Variant.Outlined" Color="Color.Primary" FullWidth="true" OnClick="@(() => ViewModel.NavigateToOvertimeCommand.Execute(null))">Overtime</MudButton>
         </MudItem>
     </MudGrid>
+}
+
+@code {
+    protected override async Task OnInitializedAsync() => await ViewModel.OnAppearingAsync();
 }

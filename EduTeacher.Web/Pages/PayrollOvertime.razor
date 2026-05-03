@@ -1,0 +1,62 @@
+@page "/payroll/overtime"
+@using EduTeacher.Shared.ViewModels
+@using EduTeacher.Shared.Payroll.Dtos
+@inject OvertimeViewModel ViewModel
+
+<MudText Typo="Typo.h5" Class="mb-4">Overtime</MudText>
+
+@if (ViewModel.IsBusy)
+{
+    <MudProgressLinear Indeterminate="true" />
+}
+else
+{
+    <MudText Typo="Typo.subtitle1" Class="mb-2">Total this month: <strong>@ViewModel.TotalHoursThisMonth hrs</strong></MudText>
+
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="mb-4" OnClick="@(() => ViewModel.ToggleLogFormCommand.Execute(null))">
+        @(ViewModel.ShowLogForm ? "Cancel" : "Log Overtime")
+    </MudButton>
+
+    @if (ViewModel.ShowLogForm)
+    {
+        <MudPaper Class="pa-4 mb-4" Elevation="2">
+            <MudGrid>
+                <MudItem xs="12" sm="3">
+                    <MudDatePicker @bind-Date="@_selectedDate" Label="Date" />
+                </MudItem>
+                <MudItem xs="12" sm="3">
+                    <MudNumericField T="decimal" @bind-Value="ViewModel.Hours" Label="Hours" Min="0.5M" Step="0.5M" />
+                </MudItem>
+                <MudItem xs="12" sm="3">
+                    <MudSelect T="Guid" @bind-Value="ViewModel.SelectedRuleId" Label="Overtime Rule">
+                        @foreach (var rule in ViewModel.Rules)
+                        {
+                            <MudSelectItem T="Guid" Value="@rule.Id">@rule.Name (@(rule.RateMultiplier)x)</MudSelectItem>
+                        }
+                    </MudSelect>
+                </MudItem>
+                <MudItem xs="12" sm="3">
+                    <MudTextField T="string" @bind-Value="ViewModel.Notes" Label="Notes" />
+                </MudItem>
+                <MudItem xs="12">
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="@(() => ViewModel.LogOvertimeCommand.Execute(null))">Submit</MudButton>
+                </MudItem>
+            </MudGrid>
+        </MudPaper>
+    }
+
+    <MudDataGrid T="OvertimeEntryDto" Items="@ViewModel.Entries" Dense="true" Hover="true">
+        <Columns>
+            <PropertyColumn Property="x => x.Date" Title="Date" Format="dd MMM yyyy" />
+            <PropertyColumn Property="x => x.Hours" Title="Hours" />
+            <PropertyColumn Property="x => x.Amount" Title="Amount" Format="C" />
+            <PropertyColumn Property="x => x.Status" Title="Status" />
+            <PropertyColumn Property="x => x.Notes" Title="Notes" />
+        </Columns>
+    </MudDataGrid>
+}
+
+@code {
+    private DateTime? _selectedDate = DateTime.Today;
+    protected override async Task OnInitializedAsync() => await ViewModel.OnAppearingAsync();
+}

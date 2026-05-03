@@ -399,7 +399,50 @@
         <member name="P:EduTeacher.Shared.ViewModels.NotificationPreferencesViewModel.SaveCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:EduTeacher.Shared.ViewModels.NotificationPreferencesViewModel.SaveAsync"/>.</summary>
         </member>
+        <member name="T:EduTeacher.Shared.ViewModels.OvertimeViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:EduTeacher.Shared.ViewModels.OvertimeViewModel.Entries">
+            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.OvertimeViewModel._entries"/>
+        </member>
+        <member name="P:EduTeacher.Shared.ViewModels.OvertimeViewModel.Rules">
+            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.OvertimeViewModel._rules"/>
+        </member>
+        <member name="P:EduTeacher.Shared.ViewModels.OvertimeViewModel.SelectedDate">
+            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.OvertimeViewModel._selectedDate"/>
+        </member>
+        <member name="P:EduTeacher.Shared.ViewModels.OvertimeViewModel.Hours">
+            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.OvertimeViewModel._hours"/>
+        </member>
+        <member name="P:EduTeacher.Shared.ViewModels.OvertimeViewModel.SelectedRuleId">
+            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.OvertimeViewModel._selectedRuleId"/>
+        </member>
+        <member name="P:EduTeacher.Shared.ViewModels.OvertimeViewModel.Notes">
+            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.OvertimeViewModel._notes"/>
+        </member>
+        <member name="P:EduTeacher.Shared.ViewModels.OvertimeViewModel.ShowLogForm">
+            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.OvertimeViewModel._showLogForm"/>
+        </member>
+        <member name="P:EduTeacher.Shared.ViewModels.OvertimeViewModel.TotalHoursThisMonth">
+            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.OvertimeViewModel._totalHoursThisMonth"/>
+        </member>
+        <member name="F:EduTeacher.Shared.ViewModels.OvertimeViewModel.logOvertimeCommand">
+            <summary>The backing field for <see cref="P:EduTeacher.Shared.ViewModels.OvertimeViewModel.LogOvertimeCommand"/>.</summary>
+        </member>
+        <member name="P:EduTeacher.Shared.ViewModels.OvertimeViewModel.LogOvertimeCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:EduTeacher.Shared.ViewModels.OvertimeViewModel.LogOvertime"/>.</summary>
+        </member>
+        <member name="F:EduTeacher.Shared.ViewModels.OvertimeViewModel.toggleLogFormCommand">
+            <summary>The backing field for <see cref="P:EduTeacher.Shared.ViewModels.OvertimeViewModel.ToggleLogFormCommand"/>.</summary>
+        </member>
+        <member name="P:EduTeacher.Shared.ViewModels.OvertimeViewModel.ToggleLogFormCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:EduTeacher.Shared.ViewModels.OvertimeViewModel.ToggleLogForm"/>.</summary>
+        </member>
         <member name="T:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
             <inheritdoc/>
             <inheritdoc/>
             <inheritdoc/>
@@ -411,75 +454,136 @@
         <member name="P:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.LatestPayslip">
             <inheritdoc cref="F:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel._latestPayslip"/>
         </member>
-        <member name="P:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.Instructor">
-            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel._instructor"/>
-        </member>
         <member name="P:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.NetPay">
             <inheritdoc cref="F:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel._netPay"/>
         </member>
         <member name="P:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.Ctc">
             <inheritdoc cref="F:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel._ctc"/>
         </member>
+        <member name="P:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.GrossPay">
+            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel._grossPay"/>
+        </member>
+        <member name="P:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.PayPeriod">
+            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel._payPeriod"/>
+        </member>
+        <member name="P:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.EmployeeId">
+            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel._employeeId"/>
+        </member>
         <member name="F:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.navigateToPayslipsCommand">
             <summary>The backing field for <see cref="P:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.NavigateToPayslipsCommand"/>.</summary>
         </member>
         <member name="P:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.NavigateToPayslipsCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.NavigateToPayslipsAsync"/>.</summary>
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.NavigateToPayslips"/>.</summary>
         </member>
-        <member name="F:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.navigateToTaxCommand">
-            <summary>The backing field for <see cref="P:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.NavigateToTaxCommand"/>.</summary>
+        <member name="F:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.navigateToTaxDeclarationCommand">
+            <summary>The backing field for <see cref="P:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.NavigateToTaxDeclarationCommand"/>.</summary>
         </member>
-        <member name="P:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.NavigateToTaxCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.NavigateToTaxAsync"/>.</summary>
+        <member name="P:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.NavigateToTaxDeclarationCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.NavigateToTaxDeclaration"/>.</summary>
         </member>
         <member name="F:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.navigateToReimbursementsCommand">
             <summary>The backing field for <see cref="P:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.NavigateToReimbursementsCommand"/>.</summary>
         </member>
         <member name="P:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.NavigateToReimbursementsCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.NavigateToReimbursementsAsync"/>.</summary>
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.NavigateToReimbursements"/>.</summary>
+        </member>
+        <member name="F:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.navigateToSalaryAdvanceCommand">
+            <summary>The backing field for <see cref="P:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.NavigateToSalaryAdvanceCommand"/>.</summary>
+        </member>
+        <member name="P:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.NavigateToSalaryAdvanceCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.NavigateToSalaryAdvance"/>.</summary>
+        </member>
+        <member name="F:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.navigateToOvertimeCommand">
+            <summary>The backing field for <see cref="P:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.NavigateToOvertimeCommand"/>.</summary>
+        </member>
+        <member name="P:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.NavigateToOvertimeCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:EduTeacher.Shared.ViewModels.PayrollDashboardViewModel.NavigateToOvertime"/>.</summary>
         </member>
         <member name="T:EduTeacher.Shared.ViewModels.PayslipDetailViewModel">
             <inheritdoc/>
-        </member>
-        <member name="P:EduTeacher.Shared.ViewModels.PayslipDetailViewModel.SlipId">
-            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.PayslipDetailViewModel._slipId"/>
+            <inheritdoc/>
         </member>
         <member name="P:EduTeacher.Shared.ViewModels.PayslipDetailViewModel.Payslip">
             <inheritdoc cref="F:EduTeacher.Shared.ViewModels.PayslipDetailViewModel._payslip"/>
         </member>
-        <member name="P:EduTeacher.Shared.ViewModels.PayslipDetailViewModel.PeriodLabel">
-            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.PayslipDetailViewModel._periodLabel"/>
+        <member name="P:EduTeacher.Shared.ViewModels.PayslipDetailViewModel.SlipId">
+            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.PayslipDetailViewModel._slipId"/>
+        </member>
+        <member name="F:EduTeacher.Shared.ViewModels.PayslipDetailViewModel.loadPayslipCommand">
+            <summary>The backing field for <see cref="P:EduTeacher.Shared.ViewModels.PayslipDetailViewModel.LoadPayslipCommand"/>.</summary>
+        </member>
+        <member name="P:EduTeacher.Shared.ViewModels.PayslipDetailViewModel.LoadPayslipCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:EduTeacher.Shared.ViewModels.PayslipDetailViewModel.LoadPayslip(System.Guid)"/>.</summary>
         </member>
         <member name="T:EduTeacher.Shared.ViewModels.PayslipListViewModel">
             <inheritdoc/>
+            <inheritdoc/>
         </member>
-        <member name="F:EduTeacher.Shared.ViewModels.PayslipListViewModel.viewDetailCommand">
-            <summary>The backing field for <see cref="P:EduTeacher.Shared.ViewModels.PayslipListViewModel.ViewDetailCommand"/>.</summary>
+        <member name="P:EduTeacher.Shared.ViewModels.PayslipListViewModel.Payslips">
+            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.PayslipListViewModel._payslips"/>
         </member>
-        <member name="P:EduTeacher.Shared.ViewModels.PayslipListViewModel.ViewDetailCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:EduTeacher.Shared.ViewModels.PayslipListViewModel.ViewDetailAsync(EduTeacher.Shared.Education.Dtos.SalarySlipDto)"/>.</summary>
+        <member name="F:EduTeacher.Shared.ViewModels.PayslipListViewModel.viewPayslipCommand">
+            <summary>The backing field for <see cref="P:EduTeacher.Shared.ViewModels.PayslipListViewModel.ViewPayslipCommand"/>.</summary>
         </member>
-        <member name="T:EduTeacher.Shared.ViewModels.ReimbursementViewModel">
+        <member name="P:EduTeacher.Shared.ViewModels.PayslipListViewModel.ViewPayslipCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:EduTeacher.Shared.ViewModels.PayslipListViewModel.ViewPayslip(System.Guid)"/>.</summary>
+        </member>
+        <member name="T:EduTeacher.Shared.ViewModels.ReimbursementsViewModel">
             <inheritdoc/>
             <inheritdoc/>
         </member>
-        <member name="P:EduTeacher.Shared.ViewModels.ReimbursementViewModel.ClaimType">
-            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.ReimbursementViewModel._claimType"/>
+        <member name="P:EduTeacher.Shared.ViewModels.ReimbursementsViewModel.Claims">
+            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.ReimbursementsViewModel._claims"/>
         </member>
-        <member name="P:EduTeacher.Shared.ViewModels.ReimbursementViewModel.ClaimAmount">
-            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.ReimbursementViewModel._claimAmount"/>
+        <member name="P:EduTeacher.Shared.ViewModels.ReimbursementsViewModel.Types">
+            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.ReimbursementsViewModel._types"/>
         </member>
-        <member name="P:EduTeacher.Shared.ViewModels.ReimbursementViewModel.ClaimDescription">
-            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.ReimbursementViewModel._claimDescription"/>
+        <member name="P:EduTeacher.Shared.ViewModels.ReimbursementsViewModel.PendingCount">
+            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.ReimbursementsViewModel._pendingCount"/>
         </member>
-        <member name="P:EduTeacher.Shared.ViewModels.ReimbursementViewModel.IsSubmitting">
-            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.ReimbursementViewModel._isSubmitting"/>
+        <member name="P:EduTeacher.Shared.ViewModels.ReimbursementsViewModel.ApprovedCount">
+            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.ReimbursementsViewModel._approvedCount"/>
         </member>
-        <member name="F:EduTeacher.Shared.ViewModels.ReimbursementViewModel.submitClaimCommand">
-            <summary>The backing field for <see cref="P:EduTeacher.Shared.ViewModels.ReimbursementViewModel.SubmitClaimCommand"/>.</summary>
+        <member name="P:EduTeacher.Shared.ViewModels.ReimbursementsViewModel.TotalApproved">
+            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.ReimbursementsViewModel._totalApproved"/>
         </member>
-        <member name="P:EduTeacher.Shared.ViewModels.ReimbursementViewModel.SubmitClaimCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:EduTeacher.Shared.ViewModels.ReimbursementViewModel.SubmitClaimAsync"/>.</summary>
+        <member name="F:EduTeacher.Shared.ViewModels.ReimbursementsViewModel.navigateToNewClaimCommand">
+            <summary>The backing field for <see cref="P:EduTeacher.Shared.ViewModels.ReimbursementsViewModel.NavigateToNewClaimCommand"/>.</summary>
+        </member>
+        <member name="P:EduTeacher.Shared.ViewModels.ReimbursementsViewModel.NavigateToNewClaimCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:EduTeacher.Shared.ViewModels.ReimbursementsViewModel.NavigateToNewClaim"/>.</summary>
+        </member>
+        <member name="T:EduTeacher.Shared.ViewModels.SalaryAdvanceViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:EduTeacher.Shared.ViewModels.SalaryAdvanceViewModel.Advances">
+            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.SalaryAdvanceViewModel._advances"/>
+        </member>
+        <member name="P:EduTeacher.Shared.ViewModels.SalaryAdvanceViewModel.RequestAmount">
+            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.SalaryAdvanceViewModel._requestAmount"/>
+        </member>
+        <member name="P:EduTeacher.Shared.ViewModels.SalaryAdvanceViewModel.Reason">
+            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.SalaryAdvanceViewModel._reason"/>
+        </member>
+        <member name="P:EduTeacher.Shared.ViewModels.SalaryAdvanceViewModel.RepaymentMonths">
+            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.SalaryAdvanceViewModel._repaymentMonths"/>
+        </member>
+        <member name="P:EduTeacher.Shared.ViewModels.SalaryAdvanceViewModel.ShowRequestForm">
+            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.SalaryAdvanceViewModel._showRequestForm"/>
+        </member>
+        <member name="F:EduTeacher.Shared.ViewModels.SalaryAdvanceViewModel.requestAdvanceCommand">
+            <summary>The backing field for <see cref="P:EduTeacher.Shared.ViewModels.SalaryAdvanceViewModel.RequestAdvanceCommand"/>.</summary>
+        </member>
+        <member name="P:EduTeacher.Shared.ViewModels.SalaryAdvanceViewModel.RequestAdvanceCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:EduTeacher.Shared.ViewModels.SalaryAdvanceViewModel.RequestAdvance"/>.</summary>
+        </member>
+        <member name="F:EduTeacher.Shared.ViewModels.SalaryAdvanceViewModel.toggleRequestFormCommand">
+            <summary>The backing field for <see cref="P:EduTeacher.Shared.ViewModels.SalaryAdvanceViewModel.ToggleRequestFormCommand"/>.</summary>
+        </member>
+        <member name="P:EduTeacher.Shared.ViewModels.SalaryAdvanceViewModel.ToggleRequestFormCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:EduTeacher.Shared.ViewModels.SalaryAdvanceViewModel.ToggleRequestForm"/>.</summary>
         </member>
         <member name="T:EduTeacher.Shared.ViewModels.ScheduleViewModel">
             <inheritdoc/>
@@ -501,20 +605,20 @@
             <inheritdoc/>
             <inheritdoc/>
         </member>
-        <member name="P:EduTeacher.Shared.ViewModels.TaxDeclarationViewModel.Declaration">
-            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.TaxDeclarationViewModel._declaration"/>
+        <member name="P:EduTeacher.Shared.ViewModels.TaxDeclarationViewModel.Declarations">
+            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.TaxDeclarationViewModel._declarations"/>
         </member>
-        <member name="P:EduTeacher.Shared.ViewModels.TaxDeclarationViewModel.FiscalYear">
-            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.TaxDeclarationViewModel._fiscalYear"/>
+        <member name="P:EduTeacher.Shared.ViewModels.TaxDeclarationViewModel.CurrentDeclaration">
+            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.TaxDeclarationViewModel._currentDeclaration"/>
         </member>
-        <member name="P:EduTeacher.Shared.ViewModels.TaxDeclarationViewModel.CanSubmit">
-            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.TaxDeclarationViewModel._canSubmit"/>
+        <member name="P:EduTeacher.Shared.ViewModels.TaxDeclarationViewModel.Categories">
+            <inheritdoc cref="F:EduTeacher.Shared.ViewModels.TaxDeclarationViewModel._categories"/>
         </member>
-        <member name="F:EduTeacher.Shared.ViewModels.TaxDeclarationViewModel.submitCommand">
-            <summary>The backing field for <see cref="P:EduTeacher.Shared.ViewModels.TaxDeclarationViewModel.SubmitCommand"/>.</summary>
+        <member name="F:EduTeacher.Shared.ViewModels.TaxDeclarationViewModel.submitDeclarationCommand">
+            <summary>The backing field for <see cref="P:EduTeacher.Shared.ViewModels.TaxDeclarationViewModel.SubmitDeclarationCommand"/>.</summary>
         </member>
-        <member name="P:EduTeacher.Shared.ViewModels.TaxDeclarationViewModel.SubmitCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:EduTeacher.Shared.ViewModels.TaxDeclarationViewModel.SubmitAsync"/>.</summary>
+        <member name="P:EduTeacher.Shared.ViewModels.TaxDeclarationViewModel.SubmitDeclarationCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:EduTeacher.Shared.ViewModels.TaxDeclarationViewModel.SubmitDeclaration"/>.</summary>
         </member>
         <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs">
             <summary>
@@ -663,6 +767,27 @@
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IsSaving">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IsSaving" generated properties.</summary>
         </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Entries">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Entries" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Rules">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Rules" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Hours">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Hours" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.SelectedRuleId">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "SelectedRuleId" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Notes">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Notes" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ShowLogForm">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ShowLogForm" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.TotalHoursThisMonth">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "TotalHoursThisMonth" generated properties.</summary>
+        </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.SalaryStructure">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "SalaryStructure" generated properties.</summary>
         </member>
@@ -675,35 +800,65 @@
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Ctc">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Ctc" generated properties.</summary>
         </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.SlipId">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "SlipId" generated properties.</summary>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.GrossPay">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "GrossPay" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.PayPeriod">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "PayPeriod" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.EmployeeId">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "EmployeeId" generated properties.</summary>
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Payslip">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Payslip" generated properties.</summary>
         </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.PeriodLabel">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "PeriodLabel" generated properties.</summary>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.SlipId">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "SlipId" generated properties.</summary>
         </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ClaimType">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ClaimType" generated properties.</summary>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Payslips">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Payslips" generated properties.</summary>
         </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ClaimAmount">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ClaimAmount" generated properties.</summary>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Claims">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Claims" generated properties.</summary>
         </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ClaimDescription">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ClaimDescription" generated properties.</summary>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Types">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Types" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.PendingCount">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "PendingCount" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ApprovedCount">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ApprovedCount" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.TotalApproved">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "TotalApproved" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Advances">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Advances" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.RequestAmount">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "RequestAmount" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Reason">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Reason" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.RepaymentMonths">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "RepaymentMonths" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ShowRequestForm">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ShowRequestForm" generated properties.</summary>
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.SelectedDay">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "SelectedDay" generated properties.</summary>
         </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Declaration">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Declaration" generated properties.</summary>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Declarations">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Declarations" generated properties.</summary>
         </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.FiscalYear">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "FiscalYear" generated properties.</summary>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.CurrentDeclaration">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "CurrentDeclaration" generated properties.</summary>
         </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.CanSubmit">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "CanSubmit" generated properties.</summary>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Categories">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Categories" generated properties.</summary>
         </member>
         <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs">
             <summary>
@@ -852,6 +1007,27 @@
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IsSaving">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IsSaving" generated properties.</summary>
         </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Entries">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Entries" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Rules">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Rules" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Hours">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Hours" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.SelectedRuleId">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "SelectedRuleId" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Notes">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Notes" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ShowLogForm">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ShowLogForm" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.TotalHoursThisMonth">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "TotalHoursThisMonth" generated properties.</summary>
+        </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.SalaryStructure">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "SalaryStructure" generated properties.</summary>
         </member>
@@ -864,35 +1040,65 @@
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Ctc">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Ctc" generated properties.</summary>
         </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.SlipId">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "SlipId" generated properties.</summary>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.GrossPay">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "GrossPay" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.PayPeriod">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "PayPeriod" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.EmployeeId">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "EmployeeId" generated properties.</summary>
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Payslip">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Payslip" generated properties.</summary>
         </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.PeriodLabel">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "PeriodLabel" generated properties.</summary>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.SlipId">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "SlipId" generated properties.</summary>
         </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ClaimType">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ClaimType" generated properties.</summary>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Payslips">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Payslips" generated properties.</summary>
         </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ClaimAmount">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ClaimAmount" generated properties.</summary>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Claims">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Claims" generated properties.</summary>
         </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ClaimDescription">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ClaimDescription" generated properties.</summary>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Types">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Types" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.PendingCount">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "PendingCount" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ApprovedCount">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ApprovedCount" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.TotalApproved">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "TotalApproved" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Advances">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Advances" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.RequestAmount">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "RequestAmount" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Reason">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Reason" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.RepaymentMonths">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "RepaymentMonths" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ShowRequestForm">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ShowRequestForm" generated properties.</summary>
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.SelectedDay">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "SelectedDay" generated properties.</summary>
         </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Declaration">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Declaration" generated properties.</summary>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Declarations">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Declarations" generated properties.</summary>
         </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.FiscalYear">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "FiscalYear" generated properties.</summary>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.CurrentDeclaration">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "CurrentDeclaration" generated properties.</summary>
         </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.CanSubmit">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "CanSubmit" generated properties.</summary>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Categories">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Categories" generated properties.</summary>
         </member>
     </members>
 </doc>

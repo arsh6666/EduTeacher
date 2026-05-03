@@ -1,0 +1,34 @@
+@page "/payroll/payslips"
+@using EduTeacher.Shared.ViewModels
+@using EduTeacher.Shared.Payroll.Dtos
+@inject PayslipListViewModel ViewModel
+
+<MudText Typo="Typo.h5" Class="mb-4">My Payslips</MudText>
+
+@if (ViewModel.IsBusy)
+{
+    <MudProgressLinear Indeterminate="true" />
+}
+else
+{
+    <MudDataGrid T="SalarySlipDto" Items="@ViewModel.Payslips" Dense="true" Hover="true" Striped="true">
+        <Columns>
+            <PropertyColumn Property="x => x.SlipNumber" Title="Slip #" />
+            <PropertyColumn Property="x => x.StartDate" Title="Period Start" Format="dd MMM yyyy" />
+            <PropertyColumn Property="x => x.EndDate" Title="Period End" Format="dd MMM yyyy" />
+            <PropertyColumn Property="x => x.GrossPay" Title="Gross" Format="C" />
+            <PropertyColumn Property="x => x.TotalDeductions" Title="Deductions" Format="C" />
+            <PropertyColumn Property="x => x.NetPay" Title="Net Pay" Format="C" />
+            <PropertyColumn Property="x => x.Status" Title="Status" />
+            <TemplateColumn>
+                <CellTemplate>
+                    <MudIconButton Icon="@Icons.Material.Filled.Visibility" Size="Size.Small" OnClick="@(() => ViewModel.ViewPayslipCommand.Execute(context.Item.Id))" />
+                </CellTemplate>
+            </TemplateColumn>
+        </Columns>
+    </MudDataGrid>
+}
+
+@code {
+    protected override async Task OnInitializedAsync() => await ViewModel.OnAppearingAsync();
+}

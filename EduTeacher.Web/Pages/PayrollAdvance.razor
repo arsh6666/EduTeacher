@@ -1,0 +1,51 @@
+@page "/payroll/advance"
+@using EduTeacher.Shared.ViewModels
+@using EduTeacher.Shared.Payroll.Dtos
+@inject SalaryAdvanceViewModel ViewModel
+
+<MudText Typo="Typo.h5" Class="mb-4">Salary Advance</MudText>
+
+@if (ViewModel.IsBusy)
+{
+    <MudProgressLinear Indeterminate="true" />
+}
+else
+{
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="mb-4" OnClick="@(() => ViewModel.ToggleRequestFormCommand.Execute(null))">
+        @(ViewModel.ShowRequestForm ? "Cancel" : "Request Advance")
+    </MudButton>
+
+    @if (ViewModel.ShowRequestForm)
+    {
+        <MudPaper Class="pa-4 mb-4" Elevation="2">
+            <MudGrid>
+                <MudItem xs="12" sm="4">
+                    <MudNumericField T="decimal" @bind-Value="ViewModel.RequestAmount" Label="Amount" Min="0" />
+                </MudItem>
+                <MudItem xs="12" sm="4">
+                    <MudNumericField T="int" @bind-Value="ViewModel.RepaymentMonths" Label="Repayment Months" Min="1" Max="24" />
+                </MudItem>
+                <MudItem xs="12" sm="4">
+                    <MudTextField T="string" @bind-Value="ViewModel.Reason" Label="Reason" />
+                </MudItem>
+                <MudItem xs="12">
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="@(() => ViewModel.RequestAdvanceCommand.Execute(null))">Submit Request</MudButton>
+                </MudItem>
+            </MudGrid>
+        </MudPaper>
+    }
+
+    <MudDataGrid T="SalaryAdvanceDto" Items="@ViewModel.Advances" Dense="true" Hover="true">
+        <Columns>
+            <PropertyColumn Property="x => x.RequestDate" Title="Requested" Format="dd MMM yyyy" />
+            <PropertyColumn Property="x => x.Amount" Title="Amount" Format="C" />
+            <PropertyColumn Property="x => x.RepaymentMonths" Title="Months" />
+            <PropertyColumn Property="x => x.Status" Title="Status" />
+            <PropertyColumn Property="x => x.Reason" Title="Reason" />
+        </Columns>
+    </MudDataGrid>
+}
+
+@code {
+    protected override async Task OnInitializedAsync() => await ViewModel.OnAppearingAsync();
+}

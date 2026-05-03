@@ -5,7 +5,7 @@ var e=!1;const t=async()=>WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,
   "mainAssemblyName": "EduTeacher.Web",
   "applicationEnvironment": "Development",
   "resources": {
-    "hash": "sha256-g4VLwrHh4SZRjuznQNejiubBU7+gmpSyNFduU/VlS9Q=",
+    "hash": "sha256-3jp151rALKapaLiRZgtrQYS2uA9wEyHQPVfdha6SWCA=",
     "jsModuleNative": [
       {
         "name": "dotnet.native.mx9wzm9o5h.js"
@@ -1698,88 +1698,88 @@ var e=!1;const t=async()=>WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,
       },
       {
         "virtualPath": "EduTeacher.Shared.wasm",
-        "name": "EduTeacher.Shared.as6x0a1nyo.wasm",
-        "integrity": "sha256-mthq49SgGA8D+s+oX1D+yw4hoKuMmTiYr4UmpLurFjk=",
+        "name": "EduTeacher.Shared.cgcsw3klw5.wasm",
+        "integrity": "sha256-9EVLnlofyYzxQ1SdVGObJ/NBdvLqX6VyGnM0JaUfmZU=",
         "cache": "force-cache"
       },
       {
         "virtualPath": "Rootfly.Mobile.Core.Common.wasm",
-        "name": "Rootfly.Mobile.Core.Common.yopg2y5y5f.wasm",
-        "integrity": "sha256-7j92Rw8WNeaTc9m2S/X2FNE0Ofa2p/UC56KasoYqneo=",
+        "name": "Rootfly.Mobile.Core.Common.btzcr700au.wasm",
+        "integrity": "sha256-sUg2DPl3w12xJt73tTe0SurhklZWZexifkXiab1QrpM=",
         "cache": "force-cache"
       },
       {
         "virtualPath": "Rootfly.Mobile.Core.Networking.wasm",
-        "name": "Rootfly.Mobile.Core.Networking.tf8g0r8gu8.wasm",
-        "integrity": "sha256-uVq15Efl1q8wXsvSFcRkpntT5AhIVcVKY0ph/Obqnl0=",
+        "name": "Rootfly.Mobile.Core.Networking.m4unrgqmq4.wasm",
+        "integrity": "sha256-uqyFNUnZKbXG51OcsxV5GTR0FYa6kOaqtYPswdKNTtw=",
         "cache": "force-cache"
       },
       {
         "virtualPath": "Rootfly.Mobile.Core.Security.wasm",
-        "name": "Rootfly.Mobile.Core.Security.weofunca3i.wasm",
-        "integrity": "sha256-WAOfFy/5aVg7E0RYEiwz4FcDPsWii/MPb//gO/5Vs/M=",
+        "name": "Rootfly.Mobile.Core.Security.3a5ixmxt59.wasm",
+        "integrity": "sha256-OxScpU6gg+xXLdCKO+aFS6nc41AODKrSU2ehynm46qQ=",
         "cache": "force-cache"
       },
       {
         "virtualPath": "Rootfly.Mobile.Core.Storage.wasm",
-        "name": "Rootfly.Mobile.Core.Storage.q7qnhax8bx.wasm",
-        "integrity": "sha256-ivIOZDnJ/VXiQPp6z1E0AdOM/LV0Fk1Ppq7M46fCAws=",
+        "name": "Rootfly.Mobile.Core.Storage.ub5t04jy43.wasm",
+        "integrity": "sha256-OgDyyB2bFpAvM1uhNaMiPVYvqnE9WW8J8KXMjZNOlX8=",
         "cache": "force-cache"
       },
       {
         "virtualPath": "Rootfly.Mobile.Core.WhiteLabel.wasm",
-        "name": "Rootfly.Mobile.Core.WhiteLabel.i7aj5ggpni.wasm",
-        "integrity": "sha256-kqAjulhB65vyBWQXTsLvbqfKbG6/JOkZ1f6Rum7WdW4=",
+        "name": "Rootfly.Mobile.Core.WhiteLabel.ze8ft6myoq.wasm",
+        "integrity": "sha256-W83RUCwmBJFZKBMHE0vcuRYgD7+GSrcqi5vlqNzjIq0=",
         "cache": "force-cache"
       },
       {
         "virtualPath": "EduTeacher.Web.wasm",
-        "name": "EduTeacher.Web.pq97da2zrr.wasm",
-        "integrity": "sha256-EaKEzSVI5oJ7EIpl7NRFhrGEhsA1nXd5n269zh5c3vM=",
+        "name": "EduTeacher.Web.sb5t876pqu.wasm",
+        "integrity": "sha256-OOSsNaAa7510JTv/5I3xTVDDhdPRawG2ejIJhj6WX9M=",
         "cache": "force-cache"
       }
     ],
     "pdb": [
       {
         "virtualPath": "EduTeacher.Shared.pdb",
-        "name": "EduTeacher.Shared.odmn0humru.pdb",
-        "integrity": "sha256-9Op5c+fFZaKT6vI/YDOG2L9qtk9KH1jlq8vXczw1eeQ=",
+        "name": "EduTeacher.Shared.lf4cxobqb1.pdb",
+        "integrity": "sha256-jw1zL2eQYPSbiLfC4Qo2U5YVjlMjFBlafQ85XgNkZo8=",
         "cache": "force-cache"
       },
       {
         "virtualPath": "Rootfly.Mobile.Core.Common.pdb",
-        "name": "Rootfly.Mobile.Core.Common.7mpd8e214x.pdb",
-        "integrity": "sha256-7yKA7HsmkV83DusuE1KU2/TCXkALSR4QYWzULrvjV8g=",
+        "name": "Rootfly.Mobile.Core.Common.a37p95rj4r.pdb",
+        "integrity": "sha256-Jj1DcaqZqcx53KqM+ZltAF407DfZsFVtX/ejSRSxhag=",
         "cache": "force-cache"
       },
       {
         "virtualPath": "Rootfly.Mobile.Core.Networking.pdb",
-        "name": "Rootfly.Mobile.Core.Networking.6x45krafe8.pdb",
-        "integrity": "sha256-1hciy/m8M0ubKT5euQul5e56Aiv8I4b3igQnz2pIzPs=",
+        "name": "Rootfly.Mobile.Core.Networking.c3hi5c3vn1.pdb",
+        "integrity": "sha256-COwOtzhIJwY9GrnQinFXku72tUF0o9z7kFGRE840QSE=",
         "cache": "force-cache"
       },
       {
         "virtualPath": "Rootfly.Mobile.Core.Security.pdb",
-        "name": "Rootfly.Mobile.Core.Security.l8gua8tz7d.pdb",
-        "integrity": "sha256-taedLTZvRI4ysyhECOukk3MQzVQyqAr7DInNQRDUoX0=",
+        "name": "Rootfly.Mobile.Core.Security.8wvsq83snc.pdb",
+        "integrity": "sha256-eDoHTqSUjN8bxyKAvynhFcV0jgNWsx4/9MIPHxlQtnY=",
         "cache": "force-cache"
       },
       {
         "virtualPath": "Rootfly.Mobile.Core.Storage.pdb",
-        "name": "Rootfly.Mobile.Core.Storage.kijvcu8nr7.pdb",
-        "integrity": "sha256-dIevs/G5SaTPjACQLNKS0A19Z6dCg5n2p9pqLHQfS7I=",
+        "name": "Rootfly.Mobile.Core.Storage.2mx7jm5ngi.pdb",
+        "integrity": "sha256-6sAxdHJ1zi1UR3zWGcCfM1NTN61OkfFPkESO2xeNdkU=",
         "cache": "force-cache"
       },
       {
         "virtualPath": "Rootfly.Mobile.Core.WhiteLabel.pdb",
-        "name": "Rootfly.Mobile.Core.WhiteLabel.beprg7cljc.pdb",
-        "integrity": "sha256-U0XLTGu76oEzsXLQN8t7r7GQrqhhQkznlJcq2PBywao=",
+        "name": "Rootfly.Mobile.Core.WhiteLabel.7vdotcdx1h.pdb",
+        "integrity": "sha256-M1lHAfbw2WhNNFhZnz/Ffe4UYGccbRw8N/jiQXRYlf0=",
         "cache": "force-cache"
       },
       {
         "virtualPath": "EduTeacher.Web.pdb",
-        "name": "EduTeacher.Web.rcj4yd1qvb.pdb",
-        "integrity": "sha256-BX9u5pKTZIf546k40VHY/CeeZO/LfIPU7EAcOwETnGo=",
+        "name": "EduTeacher.Web.27vp3r6ii6.pdb",
+        "integrity": "sha256-LnnjwJPrc98i2MSzM5afaoANQROgWyI3HVaT5XraCOo=",
         "cache": "force-cache"
       }
     ],

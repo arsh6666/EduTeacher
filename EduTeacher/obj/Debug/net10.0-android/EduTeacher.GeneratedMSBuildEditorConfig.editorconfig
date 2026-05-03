@@ -76,6 +76,226 @@ build_metadata.AdditionalFiles.NoWarn =
 build_metadata.AdditionalFiles.EnableDiagnostics = 
 build_metadata.AdditionalFiles.LineInfo = 
 
+[/Users/arshdeepsingh/Documents/Projects/Rootfly/Mobile/RootflyMobile/Apps/Education/EduTeacher/EduTeacher/Views/LargeScreen/AnnouncementsManageLargeScreenPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduTeacher.Views.LargeScreen.AnnouncementsManageLargeScreenPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/LargeScreen/AnnouncementsManageLargeScreenPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/LargeScreen/AnnouncementsManageLargeScreenPage.xaml
+build_metadata.AdditionalFiles.Inflator = Runtime
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
+
+[/Users/arshdeepsingh/Documents/Projects/Rootfly/Mobile/RootflyMobile/Apps/Education/EduTeacher/EduTeacher/Views/LargeScreen/AssessmentListLargeScreenPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduTeacher.Views.LargeScreen.AssessmentListLargeScreenPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/LargeScreen/AssessmentListLargeScreenPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/LargeScreen/AssessmentListLargeScreenPage.xaml
+build_metadata.AdditionalFiles.Inflator = Runtime
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
+
+[/Users/arshdeepsingh/Documents/Projects/Rootfly/Mobile/RootflyMobile/Apps/Education/EduTeacher/EduTeacher/Views/LargeScreen/AttendanceLargeScreenPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduTeacher.Views.LargeScreen.AttendanceLargeScreenPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/LargeScreen/AttendanceLargeScreenPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/LargeScreen/AttendanceLargeScreenPage.xaml
+build_metadata.AdditionalFiles.Inflator = Runtime
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
+
+[/Users/arshdeepsingh/Documents/Projects/Rootfly/Mobile/RootflyMobile/Apps/Education/EduTeacher/EduTeacher/Views/LargeScreen/ChatListLargeScreenPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduTeacher.Views.LargeScreen.ChatListLargeScreenPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/LargeScreen/ChatListLargeScreenPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/LargeScreen/ChatListLargeScreenPage.xaml
+build_metadata.AdditionalFiles.Inflator = Runtime
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
+
+[/Users/arshdeepsingh/Documents/Projects/Rootfly/Mobile/RootflyMobile/Apps/Education/EduTeacher/EduTeacher/Views/LargeScreen/ConversationLargeScreenPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduTeacher.Views.LargeScreen.ConversationLargeScreenPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/LargeScreen/ConversationLargeScreenPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/LargeScreen/ConversationLargeScreenPage.xaml
+build_metadata.AdditionalFiles.Inflator = Runtime
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
+
+[/Users/arshdeepsingh/Documents/Projects/Rootfly/Mobile/RootflyMobile/Apps/Education/EduTeacher/EduTeacher/Views/LargeScreen/CreateAnnouncementLargeScreenPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduTeacher.Views.LargeScreen.CreateAnnouncementLargeScreenPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/LargeScreen/CreateAnnouncementLargeScreenPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/LargeScreen/CreateAnnouncementLargeScreenPage.xaml
+build_metadata.AdditionalFiles.Inflator = Runtime
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
+
+[/Users/arshdeepsingh/Documents/Projects/Rootfly/Mobile/RootflyMobile/Apps/Education/EduTeacher/EduTeacher/Views/LargeScreen/CreateAssessmentLargeScreenPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduTeacher.Views.LargeScreen.CreateAssessmentLargeScreenPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/LargeScreen/CreateAssessmentLargeScreenPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/LargeScreen/CreateAssessmentLargeScreenPage.xaml
+build_metadata.AdditionalFiles.Inflator = Runtime
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
+
+[/Users/arshdeepsingh/Documents/Projects/Rootfly/Mobile/RootflyMobile/Apps/Education/EduTeacher/EduTeacher/Views/LargeScreen/DashboardLargeScreenPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduTeacher.Views.LargeScreen.DashboardLargeScreenPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/LargeScreen/DashboardLargeScreenPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/LargeScreen/DashboardLargeScreenPage.xaml
+build_metadata.AdditionalFiles.Inflator = Runtime
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
+
+[/Users/arshdeepsingh/Documents/Projects/Rootfly/Mobile/RootflyMobile/Apps/Education/EduTeacher/EduTeacher/Views/LargeScreen/GradeBookLargeScreenPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduTeacher.Views.LargeScreen.GradeBookLargeScreenPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/LargeScreen/GradeBookLargeScreenPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/LargeScreen/GradeBookLargeScreenPage.xaml
+build_metadata.AdditionalFiles.Inflator = Runtime
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
+
+[/Users/arshdeepsingh/Documents/Projects/Rootfly/Mobile/RootflyMobile/Apps/Education/EduTeacher/EduTeacher/Views/LargeScreen/GradeSubmissionsLargeScreenPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduTeacher.Views.LargeScreen.GradeSubmissionsLargeScreenPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/LargeScreen/GradeSubmissionsLargeScreenPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/LargeScreen/GradeSubmissionsLargeScreenPage.xaml
+build_metadata.AdditionalFiles.Inflator = Runtime
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
+
+[/Users/arshdeepsingh/Documents/Projects/Rootfly/Mobile/RootflyMobile/Apps/Education/EduTeacher/EduTeacher/Views/LargeScreen/LoginLargeScreenPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduTeacher.Views.LargeScreen.LoginLargeScreenPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/LargeScreen/LoginLargeScreenPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/LargeScreen/LoginLargeScreenPage.xaml
+build_metadata.AdditionalFiles.Inflator = Runtime
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
+
+[/Users/arshdeepsingh/Documents/Projects/Rootfly/Mobile/RootflyMobile/Apps/Education/EduTeacher/EduTeacher/Views/LargeScreen/MarkAttendanceLargeScreenPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduTeacher.Views.LargeScreen.MarkAttendanceLargeScreenPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/LargeScreen/MarkAttendanceLargeScreenPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/LargeScreen/MarkAttendanceLargeScreenPage.xaml
+build_metadata.AdditionalFiles.Inflator = Runtime
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
+
+[/Users/arshdeepsingh/Documents/Projects/Rootfly/Mobile/RootflyMobile/Apps/Education/EduTeacher/EduTeacher/Views/LargeScreen/NotificationPreferencesLargeScreenPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduTeacher.Views.LargeScreen.NotificationPreferencesLargeScreenPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/LargeScreen/NotificationPreferencesLargeScreenPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/LargeScreen/NotificationPreferencesLargeScreenPage.xaml
+build_metadata.AdditionalFiles.Inflator = Runtime
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
+
+[/Users/arshdeepsingh/Documents/Projects/Rootfly/Mobile/RootflyMobile/Apps/Education/EduTeacher/EduTeacher/Views/LargeScreen/OvertimeLargeScreenPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduTeacher.Views.LargeScreen.OvertimeLargeScreenPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/LargeScreen/OvertimeLargeScreenPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/LargeScreen/OvertimeLargeScreenPage.xaml
+build_metadata.AdditionalFiles.Inflator = Runtime
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
+
+[/Users/arshdeepsingh/Documents/Projects/Rootfly/Mobile/RootflyMobile/Apps/Education/EduTeacher/EduTeacher/Views/LargeScreen/PayrollLargeScreenPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduTeacher.Views.LargeScreen.PayrollLargeScreenPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/LargeScreen/PayrollLargeScreenPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/LargeScreen/PayrollLargeScreenPage.xaml
+build_metadata.AdditionalFiles.Inflator = Runtime
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
+
+[/Users/arshdeepsingh/Documents/Projects/Rootfly/Mobile/RootflyMobile/Apps/Education/EduTeacher/EduTeacher/Views/LargeScreen/PayslipDetailLargeScreenPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduTeacher.Views.LargeScreen.PayslipDetailLargeScreenPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/LargeScreen/PayslipDetailLargeScreenPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/LargeScreen/PayslipDetailLargeScreenPage.xaml
+build_metadata.AdditionalFiles.Inflator = Runtime
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
+
+[/Users/arshdeepsingh/Documents/Projects/Rootfly/Mobile/RootflyMobile/Apps/Education/EduTeacher/EduTeacher/Views/LargeScreen/PayslipListLargeScreenPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduTeacher.Views.LargeScreen.PayslipListLargeScreenPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/LargeScreen/PayslipListLargeScreenPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/LargeScreen/PayslipListLargeScreenPage.xaml
+build_metadata.AdditionalFiles.Inflator = Runtime
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
+
+[/Users/arshdeepsingh/Documents/Projects/Rootfly/Mobile/RootflyMobile/Apps/Education/EduTeacher/EduTeacher/Views/LargeScreen/ProfileLargeScreenPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduTeacher.Views.LargeScreen.ProfileLargeScreenPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/LargeScreen/ProfileLargeScreenPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/LargeScreen/ProfileLargeScreenPage.xaml
+build_metadata.AdditionalFiles.Inflator = Runtime
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
+
+[/Users/arshdeepsingh/Documents/Projects/Rootfly/Mobile/RootflyMobile/Apps/Education/EduTeacher/EduTeacher/Views/LargeScreen/ReimbursementsLargeScreenPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduTeacher.Views.LargeScreen.ReimbursementsLargeScreenPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/LargeScreen/ReimbursementsLargeScreenPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/LargeScreen/ReimbursementsLargeScreenPage.xaml
+build_metadata.AdditionalFiles.Inflator = Runtime
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
+
+[/Users/arshdeepsingh/Documents/Projects/Rootfly/Mobile/RootflyMobile/Apps/Education/EduTeacher/EduTeacher/Views/LargeScreen/SalaryAdvanceLargeScreenPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduTeacher.Views.LargeScreen.SalaryAdvanceLargeScreenPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/LargeScreen/SalaryAdvanceLargeScreenPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/LargeScreen/SalaryAdvanceLargeScreenPage.xaml
+build_metadata.AdditionalFiles.Inflator = Runtime
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
+
+[/Users/arshdeepsingh/Documents/Projects/Rootfly/Mobile/RootflyMobile/Apps/Education/EduTeacher/EduTeacher/Views/LargeScreen/ScheduleLargeScreenPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduTeacher.Views.LargeScreen.ScheduleLargeScreenPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/LargeScreen/ScheduleLargeScreenPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/LargeScreen/ScheduleLargeScreenPage.xaml
+build_metadata.AdditionalFiles.Inflator = Runtime
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
+
+[/Users/arshdeepsingh/Documents/Projects/Rootfly/Mobile/RootflyMobile/Apps/Education/EduTeacher/EduTeacher/Views/LargeScreen/TaxDeclarationLargeScreenPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduTeacher.Views.LargeScreen.TaxDeclarationLargeScreenPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/LargeScreen/TaxDeclarationLargeScreenPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/LargeScreen/TaxDeclarationLargeScreenPage.xaml
+build_metadata.AdditionalFiles.Inflator = Runtime
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
+
 [/Users/arshdeepsingh/Documents/Projects/Rootfly/Mobile/RootflyMobile/Apps/Education/EduTeacher/EduTeacher/Views/Phone/AnnouncementsManagePhonePage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = EduTeacher.Views.Phone.AnnouncementsManagePhonePage.xaml
@@ -186,6 +406,26 @@ build_metadata.AdditionalFiles.NoWarn =
 build_metadata.AdditionalFiles.EnableDiagnostics = 
 build_metadata.AdditionalFiles.LineInfo = 
 
+[/Users/arshdeepsingh/Documents/Projects/Rootfly/Mobile/RootflyMobile/Apps/Education/EduTeacher/EduTeacher/Views/Phone/OvertimePhonePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduTeacher.Views.Phone.OvertimePhonePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/Phone/OvertimePhonePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/Phone/OvertimePhonePage.xaml
+build_metadata.AdditionalFiles.Inflator = Runtime
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
+
+[/Users/arshdeepsingh/Documents/Projects/Rootfly/Mobile/RootflyMobile/Apps/Education/EduTeacher/EduTeacher/Views/Phone/PayrollPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduTeacher.Views.Phone.PayrollPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/Phone/PayrollPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/Phone/PayrollPage.xaml
+build_metadata.AdditionalFiles.Inflator = Runtime
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
+
 [/Users/arshdeepsingh/Documents/Projects/Rootfly/Mobile/RootflyMobile/Apps/Education/EduTeacher/EduTeacher/Views/Phone/PayrollPhonePage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = EduTeacher.Views.Phone.PayrollPhonePage.xaml
@@ -231,6 +471,16 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = EduTeacher.Views.Phone.ReimbursementsPhonePage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views/Phone/ReimbursementsPhonePage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views/Phone/ReimbursementsPhonePage.xaml
+build_metadata.AdditionalFiles.Inflator = Runtime
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
+
+[/Users/arshdeepsingh/Documents/Projects/Rootfly/Mobile/RootflyMobile/Apps/Education/EduTeacher/EduTeacher/Views/Phone/SalaryAdvancePhonePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = EduTeacher.Views.Phone.SalaryAdvancePhonePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/Phone/SalaryAdvancePhonePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/Phone/SalaryAdvancePhonePage.xaml
 build_metadata.AdditionalFiles.Inflator = Runtime
 build_metadata.AdditionalFiles.NoWarn = 
 build_metadata.AdditionalFiles.EnableDiagnostics = 

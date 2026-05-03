@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<core:BaseContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:core="clr-namespace:Rootfly.Mobile.Core.UI.Pages;assembly=Rootfly.Mobile.Core.UI"
+                       xmlns:vm="clr-namespace:EduTeacher.Shared.ViewModels;assembly=EduTeacher.Shared"
+                       x:Class="EduTeacher.Views.LargeScreen.GradeBookLargeScreenPage"
+                       x:TypeArguments="vm:GradeBookViewModel"
+                       Title="{Binding Title}}">
+    <Grid ColumnDefinitions="300,*" ColumnSpacing="16" Padding="24">
+        <!-- Left sidebar -->
+        <VerticalStackLayout Grid.Column="0" Spacing="12">
+            <Label Text="{Binding Title}}" FontSize="28" FontAttributes="Bold" />
+
+            <!-- Sidebar navigation -->
+            <Button Text="Dashboard" Style="{StaticResource SidebarButton}}" Margin="0,2" />
+            <Button Text="Schedule" Style="{StaticResource SidebarButton}}" Margin="0,2" />
+            <Button Text="MarkAttendance" Style="{StaticResource SidebarButton}}" Margin="0,2" />
+            <Button Text="AssessmentList" Style="{StaticResource SidebarButton}}" Margin="0,2" />
+            <Button Text="GradeBook" Style="{StaticResource SidebarButton}}" Margin="0,2" />
+            <Button Text="ChatList" Style="{StaticResource SidebarButton}}" Margin="0,2" />
+            <Button Text="Payroll" Style="{StaticResource SidebarButton}}" Margin="0,2" />
+            <Button Text="PayslipList" Style="{StaticResource SidebarButton}}" Margin="0,2" />
+            <Button Text="PayslipDetail" Style="{StaticResource SidebarButton}}" Margin="0,2" />
+            <Button Text="TaxDeclaration" Style="{StaticResource SidebarButton}}" Margin="0,2" />
+            <Button Text="Reimbursements" Style="{StaticResource SidebarButton}}" Margin="0,2" />
+            <Button Text="SalaryAdvance" Style="{StaticResource SidebarButton}}" Margin="0,2" />
+            <Button Text="Overtime" Style="{StaticResource SidebarButton}}" Margin="0,2" />
+
+
+        </VerticalStackLayout>
+        <!-- Main content area -->
+        <Border Grid.Column="1" StrokeShape="RoundRectangle 12" Stroke="#E0E0E0" BackgroundColor="White" Padding="20">
+            <VerticalStackLayout Spacing="12">
+                <Label Text="Content" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource Gray600}}" />
+                <ActivityIndicator IsRunning="{Binding IsBusy}}" IsVisible="{Binding IsBusy}}" />
+            </VerticalStackLayout>
+        </Border>
+    </Grid>
+</core:BaseContentPage>

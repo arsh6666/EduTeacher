@@ -4,9 +4,9 @@ using EduTeacher.Shared.ViewModels;
 
 namespace EduTeacher.Views.Phone;
 
-public partial class ReimbursementsPhonePage : BaseContentPage<ReimbursementViewModel>
+public partial class ReimbursementsPhonePage : BaseContentPage<ReimbursementsViewModel>
 {
-    public ReimbursementsPhonePage(ReimbursementViewModel viewModel, INavigationService navigation, IDialogService dialog, IDeviceInfoService deviceInfo)
+    public ReimbursementsPhonePage(ReimbursementsViewModel viewModel, INavigationService navigation, IDialogService dialog, IDeviceInfoService deviceInfo)
         : base(viewModel, navigation, dialog, deviceInfo)
     {
         InitializeComponent();

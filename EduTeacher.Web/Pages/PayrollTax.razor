@@ -1,0 +1,54 @@
+@page "/payroll/tax"
+@using EduTeacher.Shared.ViewModels
+@using EduTeacher.Shared.Payroll.Dtos
+@inject TaxDeclarationViewModel ViewModel
+
+<MudText Typo="Typo.h5" Class="mb-4">Tax Declaration</MudText>
+
+@if (ViewModel.IsBusy)
+{
+    <MudProgressLinear Indeterminate="true" />
+}
+else if (ViewModel.CurrentDeclaration is not null)
+{
+    var decl = ViewModel.CurrentDeclaration;
+    <MudPaper Class="pa-4 mb-4" Elevation="2">
+        <MudGrid>
+            <MudItem xs="6" sm="3"><MudText Typo="Typo.subtitle2">Fiscal Year</MudText><MudText>@decl.FiscalYear</MudText></MudItem>
+            <MudItem xs="6" sm="3"><MudText Typo="Typo.subtitle2">Regime</MudText><MudText>@decl.RegimeType</MudText></MudItem>
+            <MudItem xs="6" sm="3"><MudText Typo="Typo.subtitle2">Total Declared</MudText><MudText>@decl.TotalDeclaredAmount.ToString("C")</MudText></MudItem>
+            <MudItem xs="6" sm="3"><MudText Typo="Typo.subtitle2">Status</MudText><MudChip T="string" Color="@(decl.Status == TaxDeclarationStatus.Submitted ? Color.Success : Color.Warning)">@decl.Status</MudChip></MudItem>
+        </MudGrid>
+
+        @if (decl.Lines.Count > 0)
+        {
+            <MudSimpleTable Dense="true" Class="mt-3">
+                <thead><tr><th>Category</th><th>Declared</th><th>Approved</th><th>Remarks</th></tr></thead>
+                <tbody>
+                    @foreach (var line in decl.Lines)
+                    {
+                        <tr>
+                            <td>@line.TaxExemptionCategoryId</td>
+                            <td>@line.DeclaredAmount.ToString("C")</td>
+                            <td>@(line.ApprovedAmount?.ToString("C") ?? "—")</td>
+                            <td>@line.Remarks</td>
+                        </tr>
+                    }
+                </tbody>
+            </MudSimpleTable>
+        }
+
+        @if (decl.Status == TaxDeclarationStatus.Draft)
+        {
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="mt-3" OnClick="@(() => ViewModel.SubmitDeclarationCommand.Execute(null))">Submit Declaration</MudButton>
+        }
+    </MudPaper>
+}
+else
+{
+    <MudAlert Severity="Severity.Info">No tax declaration found for the current fiscal year.</MudAlert>
+}
+
+@code {
+    protected override async Task OnInitializedAsync() => await ViewModel.OnAppearingAsync();
+}

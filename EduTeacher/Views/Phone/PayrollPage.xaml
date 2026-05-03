@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<core:BaseContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:core="clr-namespace:Rootfly.Mobile.Core.UI.Pages;assembly=Rootfly.Mobile.Core.UI"
+                       xmlns:vm="clr-namespace:EduTeacher.Shared.ViewModels;assembly=EduTeacher.Shared"
+                       x:Class="EduTeacher.Views.Phone.PayrollPage"
+                       x:TypeArguments="vm:PayrollDashboardViewModel"
+                       Title="{Binding Title}">
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="16">
+            <!-- Summary Cards -->
+            <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8">
+                <Frame Grid.Column="0" Padding="12" CornerRadius="8" BorderColor="Transparent" BackgroundColor="{AppThemeBinding Light=#E3F2FD, Dark=#1A237E}">
+                    <VerticalStackLayout>
+                        <Label Text="Net Pay" FontSize="12" TextColor="{AppThemeBinding Light=Gray, Dark=LightGray}" />
+                        <Label Text="{Binding NetPay, StringFormat='{0:C}'}" FontSize="18" FontAttributes="Bold" />
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame Grid.Column="1" Padding="12" CornerRadius="8" BorderColor="Transparent" BackgroundColor="{AppThemeBinding Light=#E8F5E9, Dark=#1B5E20}">
+                    <VerticalStackLayout>
+                        <Label Text="Gross Pay" FontSize="12" TextColor="{AppThemeBinding Light=Gray, Dark=LightGray}" />
+                        <Label Text="{Binding GrossPay, StringFormat='{0:C}'}" FontSize="18" FontAttributes="Bold" />
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame Grid.Column="2" Padding="12" CornerRadius="8" BorderColor="Transparent" BackgroundColor="{AppThemeBinding Light=#FFF3E0, Dark=#E65100}">
+                    <VerticalStackLayout>
+                        <Label Text="CTC" FontSize="12" TextColor="{AppThemeBinding Light=Gray, Dark=LightGray}" />
+                        <Label Text="{Binding Ctc, StringFormat='{0:C}'}" FontSize="18" FontAttributes="Bold" />
+                    </VerticalStackLayout>
+                </Frame>
+            </Grid>
+
+            <Label Text="{Binding PayPeriod}" FontSize="14" TextColor="Gray" HorizontalOptions="Center" />
+
+            <!-- Quick Actions -->
+            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto" ColumnSpacing="8" RowSpacing="8">
+                <Button Grid.Row="0" Grid.Column="0" Text="Payslips" Command="{Binding NavigateToPayslipsCommand}" />
+                <Button Grid.Row="0" Grid.Column="1" Text="Tax" Command="{Binding NavigateToTaxDeclarationCommand}" />
+                <Button Grid.Row="1" Grid.Column="0" Text="Reimbursements" Command="{Binding NavigateToReimbursementsCommand}" />
+                <Button Grid.Row="1" Grid.Column="1" Text="Advance" Command="{Binding NavigateToSalaryAdvanceCommand}" />
+                <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="Overtime" Command="{Binding NavigateToOvertimeCommand}" />
+            </Grid>
+
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" HorizontalOptions="Center" />
+        </VerticalStackLayout>
+    </ScrollView>
+</core:BaseContentPage>

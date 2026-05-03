@@ -6,7 +6,7 @@
     xmlns:vm="clr-namespace:EduTeacher.Shared.ViewModels;assembly=EduTeacher.Shared"
     xmlns:dtos="clr-namespace:EduTeacher.Shared.Education.Dtos;assembly=EduTeacher.Shared"
     x:Class="EduTeacher.Views.Phone.ReimbursementsPhonePage"
-    x:TypeArguments="vm:ReimbursementViewModel"
+    x:TypeArguments="vm:ReimbursementsViewModel"
     Title="{Binding Title}">
 
     <Grid RowDefinitions="Auto,*" RowSpacing="12" Padding="16">

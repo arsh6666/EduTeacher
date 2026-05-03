@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyDescriptionAttribute(("Shared ViewModels, DTOs, services and mapping for EduTeacher — referenced by both" +
     " MAUI and Blazor WASM apps."))]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6e8f18593db011f5546a6979007beba777de9894")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b5ba1ac146aa93a915f15a33392885e4bc54f987")]
 [assembly: System.Reflection.AssemblyProductAttribute("EduTeacher.Shared")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EduTeacher.Shared")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

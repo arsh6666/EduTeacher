@@ -1,33 +1,26 @@
+using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Rootfly.Mobile.Core.Common.Abstractions;
 using Rootfly.Mobile.Core.Common.ViewModels;
-using EduTeacher.Shared.Education.Dtos;
-using EduTeacher.Shared.Education.Services;
-using System.Collections.ObjectModel;
+using Rootfly.Mobile.Core.Security.Interfaces;
+using EduTeacher.Shared.Payroll.Dtos;
+using EduTeacher.Shared.Payroll.Services;
 
 namespace EduTeacher.Shared.ViewModels;
 
 public partial class TaxDeclarationViewModel : BaseViewModel
 {
     private readonly IPayrollApiService _payrollApi;
-    private readonly ITeacherEducationApiService _educationApi;
-    private readonly ILocalizationService _l;
+    private readonly IAuthService _authService;
 
-    [ObservableProperty] private TaxDeclarationDto? _declaration;
-    [ObservableProperty] private string _fiscalYear = string.Empty;
-    [ObservableProperty] private bool _canSubmit;
+    [ObservableProperty] private ObservableCollection<EmployeeTaxDeclarationDto> _declarations = new();
+    [ObservableProperty] private EmployeeTaxDeclarationDto? _currentDeclaration;
+    [ObservableProperty] private ObservableCollection<TaxExemptionCategoryDto> _categories = new();
 
-    public ObservableCollection<TaxDeclarationLineDto> Lines { get; } = [];
-
-    public TaxDeclarationViewModel(
-        IPayrollApiService payrollApi,
-        ITeacherEducationApiService educationApi,
-        ILocalizationService localizationService)
+    public TaxDeclarationViewModel(IPayrollApiService payrollApi, IAuthService authService)
     {
         _payrollApi = payrollApi;
-        _educationApi = educationApi;
-        _l = localizationService;
+        _authService = authService;
         Title = "Tax Declaration";
     }
 
@@ -35,45 +28,35 @@ public partial class TaxDeclarationViewModel : BaseViewModel
     {
         await ExecuteBusyAsync(async () =>
         {
-            Title = await _l.GetStringAsync("TaxDeclaration");
-            FiscalYear = GetCurrentFiscalYear();
+            var user = await _authService.GetCurrentUserAsync();
+            if (user is null) return;
 
-            var instructorResult = await _educationApi.GetCurrentInstructorAsync();
-            if (!instructorResult.IsSuccess || instructorResult.Data?.EmployeeId is null) return;
-
-            var employeeId = instructorResult.Data.EmployeeId.Value;
-            var result = await _payrollApi.GetTaxDeclarationAsync(employeeId, FiscalYear);
+            var result = await _payrollApi.GetTaxDeclarationsAsync(user.Id);
             if (result.IsSuccess && result.Data is not null)
             {
-                Declaration = result.Data;
-                CanSubmit = Declaration.Status == "Draft";
-                Lines.Clear();
-                foreach (var line in Declaration.Declarations)
-                    Lines.Add(line);
+                Declarations = new ObservableCollection<EmployeeTaxDeclarationDto>(result.Data.Items);
+                CurrentDeclaration = result.Data.Items.FirstOrDefault(d => d.Status != TaxDeclarationStatus.Locked);
             }
+
+            var cats = await _payrollApi.GetTaxExemptionCategoriesAsync();
+            if (cats.IsSuccess && cats.Data is not null)
+                Categories = new ObservableCollection<TaxExemptionCategoryDto>(cats.Data.Items);
         });
     }
 
     [RelayCommand]
-    private async Task SubmitAsync()
+    private async Task SubmitDeclaration()
     {
-        if (Declaration is null) return;
-        var result = await _payrollApi.SubmitTaxDeclarationAsync(Declaration.Id);
-        if (result.IsSuccess)
+        if (CurrentDeclaration is null) return;
+        await ExecuteBusyAsync(async () =>
         {
-            CanSubmit = false;
-            await Dialog.ShowAlertAsync("Success", "Tax declaration submitted.", "OK");
-        }
-        else
-        {
-            ErrorMessage = result.Error ?? "Failed to submit.";
-        }
-    }
-
-    private static string GetCurrentFiscalYear()
-    {
-        var now = DateTime.Now;
-        var startYear = now.Month >= 4 ? now.Year : now.Year - 1;
-        return $"{startYear}-{startYear + 1}";
+            var result = await _payrollApi.SubmitTaxDeclarationAsync(CurrentDeclaration.Id);
+            if (result.IsSuccess)
+            {
+                await Dialog.ShowToastAsync("Tax declaration submitted");
+                await OnAppearingAsync();
+            }
+            else ErrorMessage = result.Error ?? "Failed to submit";
+        });
     }
 }

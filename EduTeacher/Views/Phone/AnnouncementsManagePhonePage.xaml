@@ -88,7 +88,7 @@
                 BackgroundColor="#1A73E8" CornerRadius="28"
                 WidthRequest="56" HeightRequest="56"
                 Margin="0,0,20,20" HorizontalOptions="End"
-                Shadow="{Shadow Opacity=0.2, Offset='0,4'}"
+               
                 Command="{Binding CreateNewCommand}" />
     </Grid>
 

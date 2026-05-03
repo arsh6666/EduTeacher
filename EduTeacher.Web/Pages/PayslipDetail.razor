@@ -2,7 +2,7 @@
 @inherits RootflyComponentBase<PayslipDetailViewModel>
 
 <MudText Typo="Typo.h4" Class="mb-2">Payslip Detail</MudText>
-<MudText Typo="Typo.subtitle1" Color="Color.Secondary" Class="mb-4">@ViewModel.PeriodLabel</MudText>
+<MudText Typo="Typo.subtitle1" Color="Color.Secondary" Class="mb-4">@ViewModel.Payslip?.StartDate.ToString("MMM yyyy")</MudText>
 
 @if (ViewModel.IsBusy)
 {
@@ -13,7 +13,7 @@ else
     <MudGrid>
         <MudItem xs="12" md="6">
             <MudText Typo="Typo.h6" Class="mb-2">Earnings</MudText>
-            <MudTable Items="ViewModel.Earnings" Hover="true" Elevation="1" Dense="true">
+            <MudTable Items="ViewModel.Payslip?.Earnings" Hover="true" Elevation="1" Dense="true">
                 <HeaderContent>
                     <MudTh>Component</MudTh>
                     <MudTh>Amount</MudTh>
@@ -26,7 +26,7 @@ else
         </MudItem>
         <MudItem xs="12" md="6">
             <MudText Typo="Typo.h6" Class="mb-2">Deductions</MudText>
-            <MudTable Items="ViewModel.Deductions" Hover="true" Elevation="1" Dense="true">
+            <MudTable Items="ViewModel.Payslip?.Deductions" Hover="true" Elevation="1" Dense="true">
                 <HeaderContent>
                     <MudTh>Component</MudTh>
                     <MudTh>Amount</MudTh>

@@ -15,9 +15,11 @@ public partial class AppShell : Shell
         Routing.RegisterRoute("PayslipDetail", typeof(PayslipDetailPhonePage));
         Routing.RegisterRoute("TaxDeclaration", typeof(TaxDeclarationPhonePage));
         Routing.RegisterRoute("Reimbursements", typeof(ReimbursementsPhonePage));
+        Routing.RegisterRoute("SalaryAdvance", typeof(SalaryAdvancePhonePage));
+        Routing.RegisterRoute("Overtime", typeof(OvertimePhonePage));
         Routing.RegisterRoute("Conversation", typeof(ConversationPhonePage));
 
-        // Phase 10-11: Announcements & Notifications
+        // Announcements & Notifications
         Routing.RegisterRoute("Announcements", typeof(AnnouncementsManagePhonePage));
         Routing.RegisterRoute("CreateAnnouncement", typeof(CreateAnnouncementPhonePage));
         Routing.RegisterRoute("NotificationPreferences", typeof(NotificationPreferencesPhonePage));

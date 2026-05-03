@@ -1,53 +1,39 @@
+using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Rootfly.Mobile.Core.Common.Abstractions;
 using Rootfly.Mobile.Core.Common.ViewModels;
-using EduTeacher.Shared.Education.Dtos;
-using EduTeacher.Shared.Education.Services;
-using System.Collections.ObjectModel;
+using Rootfly.Mobile.Core.Security.Interfaces;
+using EduTeacher.Shared.Payroll.Dtos;
+using EduTeacher.Shared.Payroll.Services;
 
 namespace EduTeacher.Shared.ViewModels;
 
 public partial class PayslipListViewModel : BaseViewModel
 {
     private readonly IPayrollApiService _payrollApi;
-    private readonly ITeacherEducationApiService _educationApi;
-    private readonly ILocalizationService _l;
+    private readonly IAuthService _authService;
 
-    public ObservableCollection<SalarySlipDto> Payslips { get; } = [];
+    [ObservableProperty] private ObservableCollection<SalarySlipDto> _payslips = new();
 
-    public PayslipListViewModel(
-        IPayrollApiService payrollApi,
-        ITeacherEducationApiService educationApi,
-        ILocalizationService localizationService)
+    public PayslipListViewModel(IPayrollApiService payrollApi, IAuthService authService)
     {
         _payrollApi = payrollApi;
-        _educationApi = educationApi;
-        _l = localizationService;
-        Title = "Payslips";
+        _authService = authService;
+        Title = "My Payslips";
     }
 
     public override async Task OnAppearingAsync()
     {
         await ExecuteBusyAsync(async () =>
         {
-            Title = await _l.GetStringAsync("Payslips");
-
-            var instructorResult = await _educationApi.GetCurrentInstructorAsync();
-            if (!instructorResult.IsSuccess || instructorResult.Data?.EmployeeId is null) return;
-
-            var employeeId = instructorResult.Data.EmployeeId.Value;
-            var result = await _payrollApi.GetPayslipsAsync(employeeId, 12);
+            var user = await _authService.GetCurrentUserAsync();
+            if (user is null) return;
+            var result = await _payrollApi.GetPayslipsAsync(user.Id, maxResultCount: 24);
             if (result.IsSuccess && result.Data is not null)
-            {
-                Payslips.Clear();
-                foreach (var slip in result.Data.Items)
-                    Payslips.Add(slip);
-            }
+                Payslips = new ObservableCollection<SalarySlipDto>(result.Data.Items);
         });
     }
 
     [RelayCommand]
-    private async Task ViewDetailAsync(SalarySlipDto slip)
-        => await Navigation.NavigateToAsync($"PayslipDetail?slipId={slip.Id}");
+    private Task ViewPayslip(Guid slipId) => Navigation.NavigateToAsync($"PayslipDetail?id={slipId}");
 }
