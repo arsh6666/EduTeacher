@@ -1,8 +1,9 @@
 using Rootfly.Mobile.Core.Common.Abstractions;
+using Volo.Abp.DependencyInjection;
 
 namespace EduTeacher.Web.Services;
 
-public class BlazorLocalizationService : ILocalizationService
+public class BlazorLocalizationService : ILocalizationService, ISingletonDependency
 {
     private string _currentCulture = "en";
     private readonly IReadOnlyList<string> _supportedCultures = ["en", "es", "ar", "he"];

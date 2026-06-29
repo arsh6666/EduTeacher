@@ -36,4 +36,10 @@ public class BlazorNavigationService : INavigationService
         _navigationManager.NavigateTo("/");
         return Task.CompletedTask;
     }
+
+    public Task OpenUriAsync(Uri uri)
+    {
+        _navigationManager.NavigateTo(uri.ToString(), forceLoad: true);
+        return Task.CompletedTask;
+    }
 }
